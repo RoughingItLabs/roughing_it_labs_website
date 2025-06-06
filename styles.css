@@ -697,6 +697,44 @@ body {
     color: var(--primary-color);
 }
 
+/* Process Steps Styles */
+.process-steps {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 2rem;
+    margin: 2rem 0;
+}
+
+.process-step {
+    text-align: center;
+    padding: 1.5rem;
+    background-color: var(--cream);
+    border-radius: var(--border-radius);
+    transition: var(--transition);
+}
+
+.process-step:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 20px rgba(139, 69, 19, 0.12);
+}
+
+.step-number {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+}
+
+.process-step h4 {
+    font-family: var(--font-heading);
+    color: var(--primary-color);
+    margin-bottom: 1rem;
+    font-size: 1.2rem;
+}
+
+.process-step p {
+    color: var(--text-light);
+    line-height: 1.6;
+}
+
 /* CTA Section */
 .cta {
     background: linear-gradient(135deg, var(--secondary-color) 0%, var(--primary-color) 100%);
@@ -866,5 +904,22 @@ body {
     .contact-form,
     .contact-info {
         padding: 2rem;
+    }
+    
+    .process-steps {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+    
+    .process-step {
+        padding: 1rem;
+    }
+    
+    .step-number {
+        font-size: 2.5rem;
+    }
+    
+    .process-step h4 {
+        font-size: 1.1rem;
     }
 } 
