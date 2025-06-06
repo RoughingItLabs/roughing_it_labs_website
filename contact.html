@@ -47,8 +47,9 @@
                 <div class="contact-grid">
                     <div class="contact-form">
                         <h4>Send Us a Message</h4>
-                        <form name="contact" method="POST" action="/contact.html" data-netlify="true" netlify-honeypot="bot-field">
+                        <form name="contact" method="POST" action="/contact.html?success=true" data-netlify="true" netlify-honeypot="bot-field" data-netlify-recaptcha="true">
                             <input type="hidden" name="form-name" value="contact" />
+                            <input type="hidden" name="subject" value="New Contact Form Submission - RoughingIt Labs" />
                             <div style="display: none;">
                                 <label>Don't fill this out if you're human: <input name="bot-field" /></label>
                             </div>
@@ -251,6 +252,26 @@
     <script>
         // Simple form validation and enhancement
         document.addEventListener('DOMContentLoaded', function() {
+            // Check if success parameter is in URL
+            const urlParams = new URLSearchParams(window.location.search);
+            if (urlParams.get('success') === 'true') {
+                // Show success message
+                const successMessage = document.createElement('div');
+                successMessage.innerHTML = `
+                    <div style="background: #d4edda; color: #155724; padding: 20px; margin: 20px auto; border-radius: 8px; border: 1px solid #c3e6cb; max-width: 600px; text-align: center;">
+                        <h4 style="margin: 0 0 10px 0;">🎉 Message Sent Successfully!</h4>
+                        <p style="margin: 0;">Thank you for reaching out! We've received your message and will respond within 24-48 hours. Time to strike some digital gold together!</p>
+                    </div>
+                `;
+                const container = document.querySelector('.contact-content .container');
+                container.insertBefore(successMessage, container.firstChild);
+                
+                // Clear the URL parameters after 3 seconds
+                setTimeout(() => {
+                    window.history.replaceState({}, document.title, window.location.pathname);
+                }, 3000);
+            }
+            
             const form = document.querySelector('form[name="contact"]');
             if (form) {
                 form.addEventListener('submit', function(e) {
