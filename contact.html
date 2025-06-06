@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact - RoughingIt Labs</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Crimson+Text:wght@400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header class="header">
+        <nav class="nav">
+            <div class="nav-brand">
+                <h1 class="logo">RoughingIt Labs</h1>
+                <p class="tagline">Pioneering AI Solutions Since the Digital Frontier</p>
+            </div>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="services.html">Services</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="page-hero">
+            <div class="container">
+                <h2 class="page-title">Contact Us</h2>
+                <p class="page-subtitle">Ready to Strike Digital Gold Together?</p>
+            </div>
+        </section>
+
+        <section class="contact-intro">
+            <div class="container">
+                <h3>Let's Chart Your Course to AI Success</h3>
+                <p>
+                    Whether you're planning your first venture into AI territory or looking to expand your existing digital claims, we're here to help. Drop us a line at the digital saloon, and let's discuss how we can turn your AI ambitions into reality.
+                </p>
+            </div>
+        </section>
+
+        <section class="contact-content">
+            <div class="container">
+                <div class="contact-grid">
+                    <div class="contact-form">
+                        <h4>Send Us a Message</h4>
+                        <form name="contact" method="POST" data-netlify="true" netlify-honeypot="bot-field">
+                            <input type="hidden" name="form-name" value="contact" />
+                            <div style="display: none;">
+                                <label>Don't fill this out if you're human: <input name="bot-field" /></label>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="name">Name *</label>
+                                <input type="text" id="name" name="name" required>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="email">Email *</label>
+                                <input type="email" id="email" name="email" required>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="company">Company</label>
+                                <input type="text" id="company" name="company">
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="project-type">Project Type</label>
+                                <select id="project-type" name="project-type">
+                                    <option value="">Select a service...</option>
+                                    <option value="mobile-app">AI-Powered Mobile App</option>
+                                    <option value="ai-agents">AI Agents & Automation</option>
+                                    <option value="consulting">AI Consulting & Strategy</option>
+                                    <option value="prototyping">Rapid Prototyping</option>
+                                    <option value="integration">AI Integration Services</option>
+                                    <option value="analytics">AI-Powered Analytics</option>
+                                    <option value="other">Other / Not Sure</option>
+                                </select>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="budget">Estimated Budget</label>
+                                <select id="budget" name="budget">
+                                    <option value="">Select budget range...</option>
+                                    <option value="under-5k">Under $5,000</option>
+                                    <option value="5k-15k">$5,000 - $15,000</option>
+                                    <option value="15k-30k">$15,000 - $30,000</option>
+                                    <option value="30k-50k">$30,000 - $50,000</option>
+                                    <option value="50k-plus">$50,000+</option>
+                                    <option value="discuss">Let's Discuss</option>
+                                </select>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="timeline">Desired Timeline</label>
+                                <select id="timeline" name="timeline">
+                                    <option value="">Select timeline...</option>
+                                    <option value="asap">ASAP</option>
+                                    <option value="1-month">Within 1 month</option>
+                                    <option value="2-3-months">2-3 months</option>
+                                    <option value="3-6-months">3-6 months</option>
+                                    <option value="6-plus-months">6+ months</option>
+                                    <option value="flexible">Flexible</option>
+                                </select>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="message">Tell Us About Your Project *</label>
+                                <textarea id="message" name="message" required placeholder="Describe your AI vision, current challenges, or what you'd like to accomplish. The more details you share, the better we can help you strike digital gold!"></textarea>
+                            </div>
+                            
+                            <button type="submit" class="btn btn-primary">Send Message</button>
+                        </form>
+                    </div>
+
+                    <div class="contact-info">
+                        <h4>Get In Touch</h4>
+                        
+                        <div class="contact-item">
+                            <div class="contact-item-icon">📧</div>
+                            <div class="contact-item-content">
+                                <h5>Email</h5>
+                                <p><a href="mailto:hello@roughingitlabs.com">hello@roughingitlabs.com</a></p>
+                            </div>
+                        </div>
+
+                        <div class="contact-item">
+                            <div class="contact-item-icon">🏜️</div>
+                            <div class="contact-item-content">
+                                <h5>Las Vegas Office</h5>
+                                <p>Las Vegas, Nevada<br>
+                                (Our home base in the silver state)</p>
+                            </div>
+                        </div>
+
+                        <div class="contact-item">
+                            <div class="contact-item-icon">🏔️</div>
+                            <div class="contact-item-content">
+                                <h5>Incorporated</h5>
+                                <p>Wyoming, USA<br>
+                                (Business-friendly frontier territory)</p>
+                            </div>
+                        </div>
+
+                        <div class="contact-item">
+                            <div class="contact-item-icon">⏰</div>
+                            <div class="contact-item-content">
+                                <h5>Response Time</h5>
+                                <p>24-48 hours<br>
+                                (We don't keep frontier hours)</p>
+                            </div>
+                        </div>
+
+                        <div class="contact-item">
+                            <div class="contact-item-icon">🤝</div>
+                            <div class="contact-item-content">
+                                <h5>Consultation</h5>
+                                <p>Free initial consultation<br>
+                                (Let's pan for gold together)</p>
+                            </div>
+                        </div>
+
+                        <div class="contact-item">
+                            <div class="contact-item-icon">🌐</div>
+                            <div class="contact-item-content">
+                                <h5>Service Area</h5>
+                                <p>Global (Remote-first)<br>
+                                North America preferred</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="about-preview">
+            <div class="container">
+                <div class="about-content">
+                    <h3>What Happens Next?</h3>
+                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem; margin: 2rem 0;">
+                        <div style="text-align: center;">
+                            <div style="font-size: 3rem; margin-bottom: 1rem;">1️⃣</div>
+                            <h4 style="color: var(--primary-color); margin-bottom: 1rem;">We Review Your Project</h4>
+                            <p>Our team reviews your submission and evaluates the best approach for your AI needs.</p>
+                        </div>
+                        <div style="text-align: center;">
+                            <div style="font-size: 3rem; margin-bottom: 1rem;">2️⃣</div>
+                            <h4 style="color: var(--primary-color); margin-bottom: 1rem;">Free Consultation Call</h4>
+                            <p>We schedule a consultation to discuss your vision, requirements, and potential solutions.</p>
+                        </div>
+                        <div style="text-align: center;">
+                            <div style="font-size: 3rem; margin-bottom: 1rem;">3️⃣</div>
+                            <h4 style="color: var(--primary-color); margin-bottom: 1rem;">Custom Proposal</h4>
+                            <p>We deliver a detailed proposal with timeline, budget, and technical approach.</p>
+                        </div>
+                        <div style="text-align: center;">
+                            <div style="font-size: 3rem; margin-bottom: 1rem;">4️⃣</div>
+                            <h4 style="color: var(--primary-color); margin-bottom: 1rem;">Strike Gold</h4>
+                            <p>We begin development and work together to bring your AI vision to life.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="cta">
+            <div class="container">
+                <h3>The Digital Gold Rush Awaits</h3>
+                <p>Don't let another day pass without staking your claim in the AI territory. The frontier is vast, but the best opportunities go to those who act first.</p>
+                <a href="#contact-form" class="btn btn-primary">Start Your AI Journey</a>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <h4>RoughingIt Labs</h4>
+                    <p>AI Development & Consulting</p>
+                </div>
+                <div class="footer-links">
+                    <div class="footer-section">
+                        <h5>Company</h5>
+                        <ul>
+                            <li><a href="about.html">About</a></li>
+                            <li><a href="services.html">Services</a></li>
+                            <li><a href="contact.html">Contact</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-section">
+                        <h5>Territory</h5>
+                        <ul>
+                            <li>Las Vegas, Nevada</li>
+                            <li>Incorporated in Wyoming</li>
+                            <li>hello@roughingitlabs.com</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 RoughingIt Labs. All rights reserved. | Pioneering AI since the digital gold rush.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Simple form validation and enhancement
+        document.addEventListener('DOMContentLoaded', function() {
+            const form = document.querySelector('form[name="contact"]');
+            if (form) {
+                form.addEventListener('submit', function(e) {
+                    const name = document.getElementById('name').value.trim();
+                    const email = document.getElementById('email').value.trim();
+                    const message = document.getElementById('message').value.trim();
+                    
+                    if (!name || !email || !message) {
+                        e.preventDefault();
+                        alert('Please fill in all required fields (Name, Email, and Message).');
+                        return;
+                    }
+                    
+                    // Simple email validation
+                    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                    if (!emailRegex.test(email)) {
+                        e.preventDefault();
+                        alert('Please enter a valid email address.');
+                        return;
+                    }
+                });
+            }
+        });
+    </script>
+</body>
+</html> 
