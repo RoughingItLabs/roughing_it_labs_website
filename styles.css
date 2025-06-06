@@ -746,6 +746,40 @@ body {
     line-height: 1.6;
 }
 
+/* Current Projects Styles */
+.current-projects {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    margin: 2rem 0;
+}
+
+.project-highlight {
+    background-color: var(--cream);
+    padding: 2rem;
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow);
+    transition: var(--transition);
+    border-left: 4px solid var(--accent-color);
+}
+
+.project-highlight:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(139, 69, 19, 0.15);
+}
+
+.project-highlight h4 {
+    font-family: var(--font-heading);
+    color: var(--primary-color);
+    font-size: 1.3rem;
+    margin-bottom: 1rem;
+}
+
+.project-highlight p {
+    color: var(--text-light);
+    line-height: 1.7;
+}
+
 /* CTA Section */
 .cta {
     background: linear-gradient(135deg, var(--secondary-color) 0%, var(--primary-color) 100%);
