@@ -108,6 +108,24 @@
                                 </ul>
                             </div>
 
+                            <div class="product-screenshots">
+                                <h4>App Preview:</h4>
+                                <div class="screenshot-gallery">
+                                    <div class="screenshot-item">
+                                        <img src="images/automind-splash.png" alt="AutoMind Splash Screen" class="screenshot-img">
+                                        <p class="screenshot-caption">Welcome Screen</p>
+                                    </div>
+                                    <div class="screenshot-item">
+                                        <img src="images/automind-dashboard.png" alt="AutoMind Dashboard" class="screenshot-img">
+                                        <p class="screenshot-caption">AI Dashboard</p>
+                                    </div>
+                                    <div class="screenshot-item">
+                                        <img src="images/automind-chat.png" alt="AutoMind AI Chat" class="screenshot-img">
+                                        <p class="screenshot-caption">AI Diagnostics Chat</p>
+                                    </div>
+                                </div>
+                            </div>
+
                             <div class="product-status">
                                 <span class="status-badge coming-soon">Coming Soon to App Stores</span>
                                 <p class="status-text">Currently in development • Expected launch: Q4 2025</p>
@@ -297,6 +315,59 @@
         .coming-soon-products h3 {
             color: #8b4513;
             margin-bottom: 1rem;
+        }
+
+        .product-screenshots {
+            margin-bottom: 2rem;
+        }
+
+        .product-screenshots h4 {
+            color: #8b4513;
+            margin-bottom: 1rem;
+        }
+
+        .screenshot-gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+            margin-top: 1rem;
+        }
+
+        .screenshot-item {
+            text-align: center;
+        }
+
+        .screenshot-img {
+            width: 100%;
+            max-width: 250px;
+            height: auto;
+            border-radius: 20px;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border: 3px solid #d4af37;
+        }
+
+        .screenshot-img:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 35px rgba(0, 0, 0, 0.2);
+        }
+
+        .screenshot-caption {
+            margin-top: 0.5rem;
+            font-size: 0.9rem;
+            color: #8b4513;
+            font-weight: 600;
+        }
+
+        @media (max-width: 768px) {
+            .screenshot-gallery {
+                grid-template-columns: 1fr;
+                gap: 1rem;
+            }
+            
+            .screenshot-img {
+                max-width: 200px;
+            }
         }
     </style>
 </body>
