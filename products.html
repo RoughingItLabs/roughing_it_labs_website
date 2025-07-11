@@ -48,9 +48,14 @@
             <div class="container">
                 <div class="product-showcase">
                     <div class="product-card featured">
-                        <div class="product-icon"><img src="images/dinerdroid-header.png" alt="DinerDroid Robot Mascot" style="max-width: 120px; height: auto; display: block; margin: 0 auto;"></div>
+                        <div class="product-header">
+                            <img src="images/dinerdroid-header.png" alt="DinerDroid App" class="product-icon">
+                            <div class="product-info">
+                                <h3>DinerDroid </h3>
+                                <span class="badge featured">Featured</span>
+                            </div>
+                        </div>
                         <div class="product-content">
-                            <h3>DinerDroid</h3>
                             <p class="product-tagline">AI-Powered Menu Reader & Restaurant Companion</p>
                             
                             <div class="product-description">
@@ -85,9 +90,14 @@
 
                 <div class="product-showcase">
                     <div class="product-card featured">
-                        <div class="product-icon"><img src="images/automind-header-icon.png" alt="AutoMind Header Icon" style="max-width: 120px; height: auto; display: block; margin: 0 auto;"></div>
+                        <div class="product-header">
+                            <img src="images/automind-header-icon.png" alt="AutoMind App" class="product-icon">
+                            <div class="product-info">
+                                <h3>AutoMind </h3>
+                                <span class="badge featured">Featured</span>
+                            </div>
+                        </div>
                         <div class="product-content">
-                            <h3>AutoMind</h3>
                             <p class="product-tagline">AI-Powered OBD-II Diagnostic & Vehicle Health Companion</p>
                             
                             <div class="product-description">
@@ -219,18 +229,39 @@
             background: linear-gradient(135deg, #fff 0%, #fefcf6 100%);
         }
 
-        .product-icon {
-            font-size: 4rem;
-            text-align: center;
-            margin-bottom: 1rem;
+        .product-header {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1.5rem;
         }
 
-        .product-content h3 {
+        .product-icon {
+            width: 120px;
+            height: auto;
+            margin-right: 1rem;
+        }
+
+        .product-info {
+            text-align: center;
+        }
+
+        .product-info h3 {
             font-family: 'Playfair Display', serif;
             font-size: 2.5rem;
             color: #8b4513;
-            text-align: center;
             margin-bottom: 0.5rem;
+        }
+
+        .product-info .badge {
+            display: inline-block;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-weight: bold;
+            font-size: 0.9rem;
+            background: #d4af37;
+            color: #fff;
+            margin-top: 0.5rem;
         }
 
         .product-tagline {
