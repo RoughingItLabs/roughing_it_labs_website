@@ -49,27 +49,40 @@
         <section class="features">
             <div class="container">
                 <h3 class="section-title">What We Prospect For</h3>
-                <div class="features-grid">
-                    <div class="feature">
-                        <div class="feature-icon">
-                            <i class="fas fa-robot"></i>
+                <div class="feature-carousel" aria-label="Feature Carousel">
+                    <button class="carousel-arrow carousel-arrow-left" aria-label="Previous feature" tabindex="0">
+                        <i class="fas fa-chevron-left"></i>
+                    </button>
+                    <div class="carousel-track">
+                        <div class="feature-card" data-index="0">
+                            <div class="feature-icon">
+                                <i class="fas fa-robot"></i>
+                            </div>
+                            <h4>AI-Powered Mobile Apps</h4>
+                            <p>We build mobile applications that harness the power of modern LLMs like OpenAI's GPT, Grok, and other cutting-edge AI models.</p>
                         </div>
-                        <h4>AI-Powered Mobile Apps</h4>
-                        <p>We build mobile applications that harness the power of modern LLMs like OpenAI's GPT, Grok, and other cutting-edge AI models.</p>
+                        <div class="feature-card" data-index="1">
+                            <div class="feature-icon">
+                                <i class="fas fa-bolt"></i>
+                            </div>
+                            <h4>AI Agents & Automation</h4>
+                            <p>Custom AI agents that work tirelessly, like the hardworking miners of the Comstock Lode, automating tasks and solving complex problems.</p>
+                        </div>
+                        <div class="feature-card" data-index="2">
+                            <div class="feature-icon">
+                                <i class="fas fa-mountain"></i>
+                            </div>
+                            <h4>Consulting & Development</h4>
+                            <p>Whether you're a startup or an established company, we'll help you stake your claim in the AI territory with expert consulting and development.</p>
+                        </div>
                     </div>
-                    <div class="feature">
-                        <div class="feature-icon">
-                            <i class="fas fa-bolt"></i>
-                        </div>
-                        <h4>AI Agents & Automation</h4>
-                        <p>Custom AI agents that work tirelessly, like the hardworking miners of the Comstock Lode, automating tasks and solving complex problems.</p>
-                    </div>
-                    <div class="feature">
-                        <div class="feature-icon">
-                            <i class="fas fa-mountain"></i>
-                        </div>
-                        <h4>Consulting & Development</h4>
-                        <p>Whether you're a startup or an established company, we'll help you stake your claim in the AI territory with expert consulting and development.</p>
+                    <button class="carousel-arrow carousel-arrow-right" aria-label="Next feature" tabindex="0">
+                        <i class="fas fa-chevron-right"></i>
+                    </button>
+                    <div class="carousel-indicators" role="tablist" aria-label="Feature indicators">
+                        <button class="carousel-dot" aria-label="Show first feature" aria-selected="true" role="tab" tabindex="0"></button>
+                        <button class="carousel-dot" aria-label="Show second feature" aria-selected="false" role="tab" tabindex="-1"></button>
+                        <button class="carousel-dot" aria-label="Show third feature" aria-selected="false" role="tab" tabindex="-1"></button>
                     </div>
                 </div>
             </div>
@@ -130,5 +143,175 @@
             </div>
         </div>
     </footer>
+
+    <script>
+        // Feature Carousel - Functional JavaScript Implementation
+        (function() {
+            'use strict';
+            
+            // Carousel state
+            let currentIndex = 0;
+            let autoPlayInterval;
+            let isPaused = false;
+            
+            // DOM elements
+            const carousel = document.querySelector('.feature-carousel');
+            const track = carousel?.querySelector('.carousel-track');
+            const cards = track?.querySelectorAll('.feature-card');
+            const arrows = carousel?.querySelectorAll('.carousel-arrow');
+            const dots = carousel?.querySelectorAll('.carousel-dot');
+            
+            if (!carousel || !track || !cards.length) return;
+            
+            const totalCards = cards.length;
+            
+            // Utility functions
+            const updateActiveCard = (index) => {
+                // Update cards visibility
+                cards.forEach((card, i) => {
+                    card.style.display = i === index ? 'block' : 'none';
+                    card.setAttribute('aria-hidden', i !== index);
+                });
+                
+                // Update dots
+                dots.forEach((dot, i) => {
+                    dot.setAttribute('aria-selected', i === index);
+                    dot.setAttribute('tabindex', i === index ? '0' : '-1');
+                });
+                
+                // Update arrows
+                arrows[0].setAttribute('aria-label', `Previous feature (${index === 0 ? totalCards : index} of ${totalCards})`);
+                arrows[1].setAttribute('aria-label', `Next feature (${index === totalCards - 1 ? 1 : index + 2} of ${totalCards})`);
+                
+                // Announce to screen readers
+                const liveRegion = document.querySelector('[aria-live="polite"]') || 
+                    (() => {
+                        const region = document.createElement('div');
+                        region.setAttribute('aria-live', 'polite');
+                        region.setAttribute('aria-label', 'Carousel updates');
+                        region.style.position = 'absolute';
+                        region.style.left = '-10000px';
+                        region.style.width = '1px';
+                        region.style.height = '1px';
+                        region.style.overflow = 'hidden';
+                        document.body.appendChild(region);
+                        return region;
+                    })();
+                
+                liveRegion.textContent = `Feature ${index + 1} of ${totalCards}: ${cards[index].querySelector('h4').textContent}`;
+            };
+            
+            const goToCard = (index) => {
+                currentIndex = (index + totalCards) % totalCards;
+                updateActiveCard(currentIndex);
+            };
+            
+            const nextCard = () => goToCard(currentIndex + 1);
+            const prevCard = () => goToCard(currentIndex - 1);
+            
+            // Auto-play functionality
+            const startAutoPlay = () => {
+                if (autoPlayInterval) clearInterval(autoPlayInterval);
+                autoPlayInterval = setInterval(() => {
+                    if (!isPaused) nextCard();
+                }, 5000);
+            };
+            
+            const stopAutoPlay = () => {
+                if (autoPlayInterval) {
+                    clearInterval(autoPlayInterval);
+                    autoPlayInterval = null;
+                }
+            };
+            
+            // Event listeners
+            const handleArrowClick = (direction) => {
+                stopAutoPlay();
+                if (direction === 'next') nextCard();
+                else prevCard();
+                startAutoPlay();
+            };
+            
+            const handleDotClick = (index) => {
+                stopAutoPlay();
+                goToCard(index);
+                startAutoPlay();
+            };
+            
+            const handleKeyDown = (e) => {
+                switch(e.key) {
+                    case 'ArrowLeft':
+                        e.preventDefault();
+                        handleArrowClick('prev');
+                        break;
+                    case 'ArrowRight':
+                        e.preventDefault();
+                        handleArrowClick('next');
+                        break;
+                    case 'Home':
+                        e.preventDefault();
+                        handleDotClick(0);
+                        break;
+                    case 'End':
+                        e.preventDefault();
+                        handleDotClick(totalCards - 1);
+                        break;
+                }
+            };
+            
+            const handleMouseEnter = () => {
+                isPaused = true;
+            };
+            
+            const handleMouseLeave = () => {
+                isPaused = false;
+            };
+            
+            const handleFocus = () => {
+                isPaused = true;
+            };
+            
+            const handleBlur = () => {
+                isPaused = false;
+            };
+            
+            // Initialize carousel
+            const initCarousel = () => {
+                // Set up event listeners
+                arrows[0].addEventListener('click', () => handleArrowClick('prev'));
+                arrows[1].addEventListener('click', () => handleArrowClick('next'));
+                
+                dots.forEach((dot, index) => {
+                    dot.addEventListener('click', () => handleDotClick(index));
+                });
+                
+                // Keyboard navigation
+                carousel.addEventListener('keydown', handleKeyDown);
+                
+                // Pause on hover/focus
+                carousel.addEventListener('mouseenter', handleMouseEnter);
+                carousel.addEventListener('mouseleave', handleMouseLeave);
+                carousel.addEventListener('focusin', handleFocus);
+                carousel.addEventListener('focusout', handleBlur);
+                
+                // Initialize first card
+                updateActiveCard(0);
+                
+                // Start auto-play
+                startAutoPlay();
+            };
+            
+            // Initialize when DOM is ready
+            if (document.readyState === 'loading') {
+                document.addEventListener('DOMContentLoaded', initCarousel);
+            } else {
+                initCarousel();
+            }
+            
+            // Cleanup on page unload
+            window.addEventListener('beforeunload', stopAutoPlay);
+            
+        })();
+    </script>
 </body>
 </html> 

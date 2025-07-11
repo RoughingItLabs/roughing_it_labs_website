@@ -62,7 +62,22 @@ body::before {
 .container {
     max-width: 1200px;
     margin: 0 auto;
-    padding: 0 20px;
+    padding: 0 2rem;
+}
+
+/* Improved section spacing */
+section {
+    padding: 5rem 0;
+}
+
+section + section {
+    margin-top: 3rem;
+}
+
+/* Enhanced hero spacing */
+.hero {
+    padding: 8rem 0;
+    min-height: 85vh;
 }
 
 /* Header & Navigation */
@@ -82,7 +97,7 @@ body::before {
     align-items: center;
     max-width: 1200px;
     margin: 0 auto;
-    padding: 0 20px;
+    padding: 0 2rem;
 }
 
 .nav-brand .logo {
@@ -110,7 +125,7 @@ body::before {
 .nav-links {
     display: flex;
     list-style: none;
-    gap: 2rem;
+    gap: 3rem;
 }
 
 .nav-links a {
@@ -388,9 +403,9 @@ body::before {
 
 .features-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 2rem;
-    margin-top: 2rem;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 3rem;
+    margin-top: 4rem;
 }
 
 /* Enhanced card shadows with multiple layers */
@@ -442,6 +457,285 @@ body::before {
 .feature p {
     color: var(--text-light);
     line-height: 1.7;
+}
+
+/* Feature Carousel Styles */
+.feature-carousel {
+    position: relative;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 0 4rem;
+}
+
+.carousel-track {
+    position: relative;
+    overflow: hidden;
+    border-radius: var(--border-radius);
+}
+
+.carousel-track .feature-card {
+    display: none;
+    background-color: var(--off-white);
+    padding: 2.5rem;
+    border-radius: var(--border-radius);
+    text-align: center;
+    box-shadow: var(--shadow-lg), 0 2px 8px rgba(139, 69, 19, 0.1);
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    border: 2px solid transparent;
+    position: relative;
+    overflow: hidden;
+    margin: 0;
+}
+
+.carousel-track .feature-card:first-child {
+    display: block;
+}
+
+.carousel-track .feature-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(218, 165, 32, 0.1), transparent);
+    transition: left 0.5s;
+}
+
+.carousel-track .feature-card:hover::before {
+    left: 100%;
+}
+
+.carousel-track .feature-card .feature-icon {
+    font-size: 3.5rem;
+    margin-bottom: 1.5rem;
+    color: var(--accent-color);
+    transition: all 0.3s ease;
+}
+
+.carousel-track .feature-card:hover .feature-icon {
+    transform: scale(1.1);
+    color: var(--secondary-color);
+}
+
+.carousel-track .feature-card h4 {
+    font-family: var(--font-heading);
+    font-size: 1.8rem;
+    margin-bottom: 1.5rem;
+    color: var(--primary-color);
+}
+
+.carousel-track .feature-card p {
+    color: var(--text-light);
+    line-height: 1.8;
+    font-size: 1.1rem;
+}
+
+/* Carousel Navigation Arrows */
+.carousel-arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: linear-gradient(135deg, var(--primary-color), var(--dark-brown));
+    color: var(--cream);
+    border: none;
+    width: 3rem;
+    height: 3rem;
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.2rem;
+    box-shadow: var(--shadow-md);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    z-index: 10;
+}
+
+.carousel-arrow:hover {
+    background: linear-gradient(135deg, var(--secondary-color), var(--primary-color));
+    transform: translateY(-50%) scale(1.1);
+    box-shadow: var(--shadow-lg);
+}
+
+.carousel-arrow:focus {
+    outline: 3px solid var(--accent-color);
+    outline-offset: 2px;
+}
+
+.carousel-arrow:active {
+    transform: translateY(-50%) scale(0.95);
+}
+
+.carousel-arrow-left {
+    left: -1rem;
+}
+
+.carousel-arrow-right {
+    right: -1rem;
+}
+
+/* Carousel Indicators/Dots */
+.carousel-indicators {
+    display: flex;
+    justify-content: center;
+    gap: 0.5rem;
+    margin-top: 2rem;
+}
+
+.carousel-dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background-color: var(--text-light);
+    border: 2px solid transparent;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    opacity: 0.4;
+}
+
+.carousel-dot:hover {
+    background-color: var(--accent-color);
+    opacity: 0.8;
+    transform: scale(1.2);
+}
+
+.carousel-dot[aria-selected="true"] {
+    background-color: var(--accent-color);
+    opacity: 1;
+    transform: scale(1.3);
+}
+
+.carousel-dot:focus {
+    outline: 2px solid var(--accent-color);
+    outline-offset: 2px;
+}
+
+/* Mobile Responsive Carousel */
+@media (max-width: 768px) {
+    .feature-carousel {
+        padding: 0 1rem;
+    }
+    
+    .carousel-track .feature-card {
+        padding: 2rem 1.5rem;
+    }
+    
+    .carousel-track .feature-card h4 {
+        font-size: 1.5rem;
+    }
+    
+    .carousel-track .feature-card p {
+        font-size: 1rem;
+    }
+    
+    .carousel-arrow {
+        width: 2.5rem;
+        height: 2.5rem;
+        font-size: 1rem;
+    }
+    
+    .carousel-arrow-left {
+        left: -0.5rem;
+    }
+    
+    .carousel-arrow-right {
+        right: -0.5rem;
+    }
+    
+    .carousel-indicators {
+        margin-top: 1.5rem;
+    }
+    
+    /* Service card mobile improvements */
+    .service-card {
+        min-height: auto;
+        padding: 2rem 1.5rem;
+    }
+    
+    .service-card h4 {
+        font-size: 1.3rem;
+    }
+    
+    .service-card .service-subtitle {
+        font-size: 0.9rem;
+    }
+    
+    .service-actions {
+        display: flex;
+        gap: 1rem;
+        flex-wrap: wrap;
+    }
+    
+    .service-actions .btn {
+        flex: 1;
+        min-width: 120px;
+        margin-bottom: 0.5rem;
+    }
+    
+    .service-features h5 {
+        font-size: 1rem;
+    }
+    
+    .service-features li {
+        font-size: 0.9rem;
+        padding: 0.3rem 0;
+    }
+    
+    .service-pricing {
+        padding: 1.2rem;
+    }
+    
+    .service-pricing .price {
+        font-size: 1.2rem;
+    }
+}
+
+@media (max-width: 600px) {
+    .feature-carousel {
+        padding: 0;
+    }
+    
+    .carousel-track .feature-card {
+        padding: 1.5rem 1rem;
+    }
+    
+    .carousel-arrow {
+        display: none;
+    }
+    
+    /* On mobile, show all cards stacked */
+    .carousel-track {
+        overflow: visible;
+    }
+    
+    .carousel-track .feature-card {
+        display: block !important;
+        margin-bottom: 2rem;
+        opacity: 1 !important;
+        transform: none !important;
+    }
+    
+    .carousel-track .feature-card:last-child {
+        margin-bottom: 0;
+    }
+    
+    .carousel-indicators {
+        display: none;
+    }
+}
+
+/* Accessibility improvements */
+@media (prefers-reduced-motion: reduce) {
+    .carousel-track .feature-card,
+    .carousel-arrow,
+    .carousel-dot {
+        transition: none;
+    }
+    
+    .carousel-track .feature-card::before {
+        display: none;
+    }
 }
 
 /* About Preview Section */
@@ -699,21 +993,28 @@ body::before {
 
 .services-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-    gap: 3rem;
-    padding: 4rem 0;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 1.5rem;
+    margin-top: 2rem;
+    grid-auto-rows: min-content;
+    align-items: start;
 }
 
 /* Enhanced service cards with deeper shadows */
 .service-card {
     background-color: var(--off-white);
-    padding: 3rem 2rem;
+    padding: 1.5rem;
     border-radius: var(--border-radius);
     box-shadow: var(--shadow-lg), 0 2px 6px rgba(0, 0, 0, 0.05);
     transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
     border: 2px solid transparent;
     position: relative;
     overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    height: auto;
+    min-height: 400px;
+    align-self: start;
 }
 
 .service-card::before {
@@ -728,8 +1029,8 @@ body::before {
 }
 
 .service-card:hover {
-    transform: translateY(-12px) scale(1.03);
-    box-shadow: var(--shadow-2xl), 0 6px 12px rgba(139, 69, 19, 0.15);
+    transform: translateY(-8px) scale(1.02);
+    box-shadow: var(--shadow-xl), 0 8px 25px rgba(139, 69, 19, 0.15);
     border-color: var(--accent-color);
 }
 
@@ -738,65 +1039,114 @@ body::before {
 }
 
 .service-header {
+    margin-bottom: 0.75rem;
     text-align: center;
-    margin-bottom: 2rem;
 }
 
 .service-icon {
-    font-size: 4rem;
-    margin-bottom: 1rem;
+    font-size: 2rem;
+    color: var(--accent-color);
+    margin-bottom: 0.5rem;
+    transition: all 0.3s ease;
+}
+
+.service-card:hover .service-icon {
+    transform: scale(1.1);
+    color: var(--primary-color);
 }
 
 .service-card h4 {
     font-family: var(--font-heading);
-    font-size: 1.8rem;
-    margin-bottom: 1rem;
+    font-size: 1.4rem;
     color: var(--primary-color);
+    margin-bottom: 0.25rem;
+    font-weight: 700;
 }
 
 .service-card .service-subtitle {
-    font-style: italic;
     color: var(--text-light);
-    margin-bottom: 2rem;
+    font-size: 0.9rem;
+    margin-bottom: 0.5rem;
+    font-style: italic;
+}
+
+.service-content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
 }
 
 .service-features {
+    flex: 1;
+}
+
+.service-features h5 {
+    font-family: var(--font-heading);
+    color: var(--primary-color);
+    font-size: 1.1rem;
+    margin-bottom: 0.75rem;
+    font-weight: 600;
+}
+
+.service-features ul {
     list-style: none;
-    margin-bottom: 2rem;
+    padding: 0;
+    margin: 0;
 }
 
 .service-features li {
-    padding: 0.5rem 0;
-    color: var(--text-light);
+    padding: 0.25rem 0;
+    color: var(--text-dark);
+    font-size: 0.9rem;
+    line-height: 1.4;
     position: relative;
-    padding-left: 2rem;
+    padding-left: 1.25rem;
 }
 
 .service-features li:before {
-    content: "⭐";
+    content: '✦';
     position: absolute;
     left: 0;
     color: var(--accent-color);
+    font-weight: bold;
+    font-size: 0.8rem;
+}
+
+.service-footer {
+    margin-top: 1rem;
+    padding-top: 1rem;
+    border-top: 1px solid rgba(139, 69, 19, 0.1);
 }
 
 .service-pricing {
     text-align: center;
-    padding: 1.5rem;
-    background-color: var(--cream);
+    margin-bottom: 1rem;
+    padding: 0.75rem;
+    background: linear-gradient(135deg, var(--cream) 0%, var(--off-white) 100%);
     border-radius: var(--border-radius);
-    margin-bottom: 2rem;
+    border: 1px solid rgba(218, 165, 32, 0.2);
 }
 
 .service-pricing .price {
     font-family: var(--font-heading);
-    font-size: 1.5rem;
+    font-size: 1.3rem;
+    font-weight: 700;
     color: var(--primary-color);
-    margin-bottom: 0.5rem;
+    margin-bottom: 0.25rem;
 }
 
 .service-pricing .price-note {
-    font-size: 0.9rem;
+    font-size: 0.8rem;
     color: var(--text-light);
+    font-style: italic;
+}
+
+.service-footer .btn {
+    width: 100%;
+    padding: 0.75rem 1.5rem;
+    font-size: 0.9rem;
+    font-weight: 600;
+    margin-bottom: 12px;
 }
 
 /* Contact Page Styles */
@@ -1070,17 +1420,21 @@ body::before {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 2rem;
-    margin: 2rem 0;
+    margin-top: 2rem;
 }
 
 .project-highlight {
     background-color: var(--off-white);
     padding: 2rem;
     border-radius: var(--border-radius);
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
-    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: var(--shadow-md);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    text-decoration: none;
+    color: inherit;
+    display: block;
     position: relative;
     overflow: hidden;
+    border: 2px solid transparent;
 }
 
 .project-highlight::before {
@@ -1095,24 +1449,61 @@ body::before {
 }
 
 .project-highlight:hover {
-    transform: translateY(-8px) scale(1.02);
-    box-shadow: 0 12px 35px rgba(139, 69, 19, 0.15);
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-lg);
+    border-color: var(--accent-color);
+    color: inherit;
 }
 
 .project-highlight:hover::before {
     left: 100%;
 }
 
+.project-icon {
+    text-align: center;
+    margin-bottom: 1.5rem;
+}
+
+.project-icon img {
+    width: 80px;
+    height: 80px;
+    object-fit: contain;
+    border-radius: var(--border-radius);
+    transition: all 0.3s ease;
+}
+
+.project-highlight:hover .project-icon img {
+    transform: scale(1.05);
+}
+
 .project-highlight h4 {
     font-family: var(--font-heading);
-    color: var(--primary-color);
-    font-size: 1.3rem;
+    font-size: 1.4rem;
     margin-bottom: 1rem;
+    color: var(--primary-color);
+    text-align: center;
 }
 
 .project-highlight p {
     color: var(--text-light);
-    line-height: 1.7;
+    line-height: 1.6;
+    margin-bottom: 1rem;
+}
+
+.project-link {
+    display: inline-block;
+    color: var(--accent-color);
+    font-weight: 600;
+    font-size: 0.9rem;
+    text-align: center;
+    width: 100%;
+    margin-top: 1rem;
+    transition: all 0.3s ease;
+}
+
+.project-highlight:hover .project-link {
+    color: var(--secondary-color);
+    transform: translateX(4px);
 }
 
 /* CTA Section */
@@ -1865,13 +2256,16 @@ body::before {
     justify-content: center;
     margin-bottom: 1.5rem;
     flex-wrap: wrap;
-    gap: 1rem;
+    gap: 0.5rem;
+    text-align: center;
+    width: 100%;
 }
 
 .product-icon {
     width: 120px;
     height: auto;
-    margin-right: 1rem;
+    margin-right: 0.5rem;
+    flex-shrink: 0;
 }
 
 .product-info {
@@ -1879,17 +2273,24 @@ body::before {
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 0.5rem;
+    gap: 0.25rem;
+    flex: 0 1 auto;
+    min-width: 0;
+    max-width: 300px;
+    justify-content: center;
 }
 
 .product-info h3 {
     font-family: 'Playfair Display', serif;
     font-size: 2.5rem;
     color: var(--primary-color);
-    margin-bottom: 0.5rem;
+    margin-bottom: 0.25rem;
     display: flex;
     align-items: center;
     gap: 0.5rem;
+    justify-content: center;
+    text-align: center;
+    flex-wrap: wrap;
 }
 
 .product-info h3 i {
@@ -2145,3 +2546,247 @@ a:focus:not(:focus-visible) {
         animation: none;
     }
 } 
+
+/* Footer spacing */
+.footer {
+    background: linear-gradient(135deg, var(--primary-color) 0%, var(--dark-brown) 100%);
+    color: var(--cream);
+    padding: 4rem 0 2rem 0;
+    margin-top: 4rem;
+}
+
+.footer-content {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 3rem;
+    padding-bottom: 2rem;
+}
+
+.footer-section ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
+}
+
+.footer-section {
+    margin-bottom: 2rem;
+}
+
+.footer-brand {
+    margin-bottom: 2rem;
+}
+
+.footer-bottom {
+    margin-top: 2rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid rgba(245, 245, 220, 0.2);
+    text-align: center;
+}
+
+/* Card and grid spacing */
+.detail-card, .feature, .service-card, .value {
+    padding: 2.5rem 2rem;
+    margin: 1.5rem 0;
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow-md);
+}
+
+.details-grid, .values-grid, .services-grid, .about-grid, .contact-grid {
+    gap: 3rem;
+}
+
+/* Add margin to images */
+img, .product-icon, .screenshot-img {
+    display: block;
+    max-width: 100%;
+}
+
+.product-header, .product-info {
+    margin-bottom: 2rem;
+}
+
+/* List item spacing */
+ul, ol {
+    margin-bottom: 2rem;
+    margin-top: 1rem;
+    padding-left: 2rem;
+}
+
+ul li, ol li {
+    margin-bottom: 0.7rem;
+    line-height: 1.7;
+}
+
+/* Section dividers */
+.section-divider {
+    border: none;
+    border-top: 2px solid var(--accent-color);
+    margin: 4rem 0;
+    opacity: 0.15;
+}
+
+/* Subtle background for alternating sections */
+section.bg-alt {
+    background: linear-gradient(135deg, #f5f5dc 80%, #fdf5e6 100%);
+}
+
+/* Heading spacing */
+h1, h2, h3, h4, h5, h6, .section-title, .page-title {
+    margin-top: 0;
+    margin-bottom: 2rem;
+    letter-spacing: 0.01em;
+}
+
+.section-title, .page-title {
+    margin-bottom: 2.5rem;
+}
+
+h2, .page-title {
+    font-size: 2.5rem;
+    margin-top: 0.5rem;
+}
+
+h3 {
+    font-size: 2rem;
+    margin-top: 1.5rem;
+}
+
+h4 {
+    font-size: 1.4rem;
+    margin-top: 1.2rem;
+}
+
+/* Responsive spacing for mobile */
+@media (max-width: 900px) {
+    section {
+        padding: 3rem 0;
+    }
+    .features-grid, .details-grid, .values-grid, .services-grid, .about-grid, .contact-grid {
+        gap: 2rem;
+    }
+    .footer-content {
+        flex-direction: column;
+        gap: 2rem;
+    }
+    .detail-card, .feature, .service-card, .value {
+        padding: 2rem 1.2rem;
+    }
+}
+
+@media (max-width: 600px) {
+    .container {
+        padding: 0 0.7rem;
+    }
+    section {
+        padding: 2rem 0;
+    }
+    .features-grid, .details-grid, .values-grid, .services-grid, .about-grid, .contact-grid {
+        gap: 1.2rem;
+    }
+    .detail-card, .feature, .service-card, .value {
+        padding: 1.2rem 0.5rem;
+    }
+    h2, .page-title {
+        font-size: 2rem;
+    }
+    h3 {
+        font-size: 1.3rem;
+    }
+    h4 {
+        font-size: 1.1rem;
+    }
+    .footer {
+        padding: 2rem 0 1rem 0;
+    }
+    .footer-bottom {
+        margin-top: 1rem;
+        padding-top: 1rem;
+    }
+} 
+
+/* Collapsible Service Cards */
+.service-content.collapsed {
+    max-height: 0;
+    overflow: hidden;
+    opacity: 0;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    margin: 0;
+    padding: 0;
+}
+
+.service-content:not(.collapsed) {
+    max-height: 500px;
+    opacity: 1;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    margin-top: 1.5rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid rgba(139, 69, 19, 0.1);
+}
+
+.toggle-details {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    transition: all 0.3s ease;
+}
+
+.toggle-icon {
+    transition: transform 0.3s ease;
+}
+
+.toggle-details[aria-expanded="true"] .toggle-icon {
+    transform: rotate(180deg);
+}
+
+.toggle-details[aria-expanded="true"] .toggle-text {
+    content: "Hide Details";
+}
+
+/* Service card compact layout when collapsed */
+.service-card .service-header {
+    margin-bottom: 1rem;
+}
+
+.service-card .service-footer {
+    margin-top: 1.5rem;
+}
+
+/* Mobile responsive for collapsible cards */
+@media (max-width: 768px) {
+    .service-actions {
+        flex-direction: column;
+    }
+    
+    .service-actions .btn {
+        width: 100%;
+    }
+    
+    .service-content:not(.collapsed) {
+        margin-top: 1rem;
+        padding-top: 1rem;
+    }
+}
+
+.services-intro {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.services-intro h3 {
+    font-family: var(--font-heading);
+    font-size: 2.2rem;
+    color: var(--primary-color);
+    margin-bottom: 1rem;
+}
+
+.services-intro p {
+    font-size: 1.1rem;
+    color: var(--text-light);
+    line-height: 1.6;
+    max-width: 800px;
+    margin: 0 auto;
+}
