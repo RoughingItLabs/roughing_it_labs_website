@@ -1767,3 +1767,9 @@ body::before {
     border-color: var(--cream);
     box-shadow: 0 2px 8px rgba(255, 255, 255, 0.1);
 } 
+
+.hero .btn-secondary:hover {
+    color: var(--text-dark);
+    background: var(--cream);
+    border-color: var(--cream);
+} 
