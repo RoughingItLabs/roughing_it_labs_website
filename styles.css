@@ -2790,3 +2790,42 @@ h4 {
     max-width: 800px;
     margin: 0 auto;
 }
+
+/* Performance Optimizations */
+/* Lazy loading for images */
+img[loading="lazy"] {
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+}
+
+img[loading="lazy"].loaded {
+    opacity: 1;
+}
+
+/* Optimized image display */
+.product-icon img,
+.screenshot-img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    border-radius: var(--border-radius);
+}
+
+/* Preload critical resources */
+@media (preload) {
+    .hero {
+        background-image: url('images/logo.jpg');
+    }
+}
+
+/* Reduce motion for users who prefer it */
+@media (prefers-reduced-motion: reduce) {
+    img[loading="lazy"] {
+        transition: none;
+    }
+    
+    .product-icon img,
+    .screenshot-img {
+        transition: none;
+    }
+}

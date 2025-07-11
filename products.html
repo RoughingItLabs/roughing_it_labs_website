@@ -3,7 +3,70 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Our Products - RoughingIt Labs</title>
+    <title>AI Products - DinerDroid & AutoMind | RoughingIt Labs</title>
+    
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="Explore our AI-powered products: DinerDroid (menu reader) and AutoMind (vehicle diagnostics). Innovative mobile apps that make AI accessible to everyone.">
+    <meta name="keywords" content="AI mobile apps, DinerDroid, AutoMind, menu reader, vehicle diagnostics, OBD-II, artificial intelligence apps">
+    <meta name="author" content="RoughingIt Labs">
+    <meta name="robots" content="index, follow">
+    
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="AI Products - DinerDroid & AutoMind | RoughingIt Labs">
+    <meta property="og:description" content="Explore our AI-powered products: DinerDroid (menu reader) and AutoMind (vehicle diagnostics). Innovative mobile apps that make AI accessible.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://roughingitlabs.com/products.html">
+    <meta property="og:image" content="https://roughingitlabs.com/images/logo.jpg">
+    <meta property="og:site_name" content="RoughingIt Labs">
+    
+    <!-- Twitter Card Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="AI Products - DinerDroid & AutoMind | RoughingIt Labs">
+    <meta name="twitter:description" content="Explore our AI-powered products: DinerDroid (menu reader) and AutoMind (vehicle diagnostics). Innovative mobile apps that make AI accessible.">
+    <meta name="twitter:image" content="https://roughingitlabs.com/images/logo.jpg">
+    
+    <!-- Additional Meta Tags -->
+    <meta name="theme-color" content="#8B4513">
+    <link rel="canonical" href="https://roughingitlabs.com/products.html">
+    
+    <!-- Structured Data (JSON-LD) -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "ItemList",
+        "name": "AI Products",
+        "description": "AI-powered mobile applications by RoughingIt Labs",
+        "url": "https://roughingitlabs.com/products.html",
+        "itemListElement": [
+            {
+                "@type": "SoftwareApplication",
+                "name": "DinerDroid",
+                "description": "AI-Powered Menu Reader & Restaurant Companion",
+                "applicationCategory": "LifestyleApplication",
+                "operatingSystem": "Android",
+                "offers": {
+                    "@type": "Offer",
+                    "availability": "PreOrder",
+                    "price": "0",
+                    "priceCurrency": "USD"
+                }
+            },
+            {
+                "@type": "SoftwareApplication",
+                "name": "AutoMind",
+                "description": "AI-Powered OBD-II Diagnostic & Vehicle Health Companion",
+                "applicationCategory": "AutomotiveApplication",
+                "operatingSystem": "Android, iOS",
+                "offers": {
+                    "@type": "Offer",
+                    "availability": "PreOrder",
+                    "price": "0",
+                    "priceCurrency": "USD"
+                }
+            }
+        ]
+    }
+    </script>
     <link rel="stylesheet" href="styles.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -52,7 +115,7 @@
                 <div class="product-showcase">
                     <div class="product-card featured">
                         <div class="product-header">
-                            <img src="images/dinerdroid-header.png" alt="DinerDroid App" class="product-icon">
+                            <img src="images/dinerdroid-header.png" alt="DinerDroid App" class="product-icon" loading="lazy">
                             <div class="product-info">
                                 <h3>DinerDroid </h3>
                                 <span class="badge featured">Featured</span>
@@ -94,7 +157,7 @@
                 <div class="product-showcase">
                     <div class="product-card featured">
                         <div class="product-header">
-                            <img src="images/automind-header-icon.png" alt="AutoMind App" class="product-icon">
+                            <img src="images/automind-header-icon.png" alt="AutoMind App" class="product-icon" loading="lazy">
                             <div class="product-info">
                                 <h3>AutoMind </h3>
                                 <span class="badge featured">Featured</span>
@@ -126,15 +189,15 @@
                                 <h4>App Preview:</h4>
                                 <div class="screenshot-gallery">
                                     <div class="screenshot-item">
-                                        <img src="images/automind-splash.png" alt="AutoMind Splash Screen" class="screenshot-img">
+                                        <img src="images/automind-splash.png" alt="AutoMind Splash Screen" class="screenshot-img" loading="lazy">
                                         <p class="screenshot-caption">Welcome Screen</p>
                                     </div>
                                     <div class="screenshot-item">
-                                        <img src="images/automind-dashboard.png" alt="AutoMind Dashboard" class="screenshot-img">
+                                        <img src="images/automind-dashboard.png" alt="AutoMind Dashboard" class="screenshot-img" loading="lazy">
                                         <p class="screenshot-caption">AI Dashboard</p>
                                     </div>
                                     <div class="screenshot-item">
-                                        <img src="images/automind-chat.png" alt="AutoMind AI Chat" class="screenshot-img">
+                                        <img src="images/automind-chat.png" alt="AutoMind AI Chat" class="screenshot-img" loading="lazy">
                                         <p class="screenshot-caption">AI Diagnostics Chat</p>
                                     </div>
                                 </div>
@@ -405,5 +468,8 @@
             }
         }
     </style>
+    
+    <!-- Performance Optimization Script -->
+    <script src="lazy-loading.js"></script>
 </body>
 </html> 
