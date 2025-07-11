@@ -11,8 +11,11 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
+    <!-- Skip to main content link for keyboard users -->
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+    
     <header class="header">
-        <nav class="nav">
+        <nav class="nav" role="navigation" aria-label="Main navigation">
             <div class="nav-brand">
                 <h1 class="logo">RoughingIt Labs</h1>
                 <p class="tagline">Pioneering AI Solutions Since the Digital Frontier</p>
@@ -22,12 +25,12 @@
                 <li><a href="about.html">About</a></li>
                 <li><a href="services.html">Services</a></li>
                 <li><a href="products.html">Products</a></li>
-                <li><a href="contact.html" class="active">Contact</a></li>
+                <li><a href="contact.html" class="active" aria-current="page">Contact</a></li>
             </ul>
         </nav>
     </header>
 
-    <main>
+    <main id="main-content" role="main">
         <section class="page-hero">
             <div class="container">
                 <h2 class="page-title">Contact Us</h2>
@@ -58,25 +61,25 @@
                             
                             <div class="form-group">
                                 <label for="name">Name *</label>
-                                <input type="text" id="name" name="name" required>
-                                <div class="field-error" id="name-error" aria-live="polite"></div>
+                                <input type="text" id="name" name="name" required aria-describedby="name-error" aria-invalid="false">
+                                <div class="field-error" id="name-error" aria-live="polite" role="alert"></div>
                             </div>
                             
                             <div class="form-group">
                                 <label for="email">Email *</label>
-                                <input type="email" id="email" name="email" required>
-                                <div class="field-error" id="email-error" aria-live="polite"></div>
+                                <input type="email" id="email" name="email" required aria-describedby="email-error" aria-invalid="false">
+                                <div class="field-error" id="email-error" aria-live="polite" role="alert"></div>
                             </div>
                             
                             <div class="form-group">
                                 <label for="company">Company</label>
-                                <input type="text" id="company" name="company">
-                                <div class="field-error" id="company-error" aria-live="polite"></div>
+                                <input type="text" id="company" name="company" aria-describedby="company-error" aria-invalid="false">
+                                <div class="field-error" id="company-error" aria-live="polite" role="alert"></div>
                             </div>
                             
                             <div class="form-group">
                                 <label for="project-type">Project Type</label>
-                                <select id="project-type" name="project-type">
+                                <select id="project-type" name="project-type" aria-describedby="project-type-error" aria-invalid="false">
                                     <option value="">Select a service...</option>
                                     <option value="mobile-app">AI-Powered Mobile App</option>
                                     <option value="ai-agents">AI Agents & Automation</option>
@@ -85,12 +88,12 @@
                                     <option value="integration">AI Integration Services</option>
                                     <option value="other">Other / Not Sure</option>
                                 </select>
-                                <div class="field-error" id="project-type-error" aria-live="polite"></div>
+                                <div class="field-error" id="project-type-error" aria-live="polite" role="alert"></div>
                             </div>
                             
                             <div class="form-group">
                                 <label for="budget">Estimated Budget</label>
-                                <select id="budget" name="budget">
+                                <select id="budget" name="budget" aria-describedby="budget-error" aria-invalid="false">
                                     <option value="">Select budget range...</option>
                                     <option value="under-5k">Under $5,000</option>
                                     <option value="5k-15k">$5,000 - $15,000</option>
@@ -99,12 +102,12 @@
                                     <option value="50k-plus">$50,000+</option>
                                     <option value="discuss">Let's Discuss</option>
                                 </select>
-                                <div class="field-error" id="budget-error" aria-live="polite"></div>
+                                <div class="field-error" id="budget-error" aria-live="polite" role="alert"></div>
                             </div>
                             
                             <div class="form-group">
                                 <label for="timeline">Desired Timeline</label>
-                                <select id="timeline" name="timeline">
+                                <select id="timeline" name="timeline" aria-describedby="timeline-error" aria-invalid="false">
                                     <option value="">Select timeline...</option>
                                     <option value="asap">ASAP</option>
                                     <option value="1-month">Within 1 month</option>
@@ -113,19 +116,19 @@
                                     <option value="6-plus-months">6+ months</option>
                                     <option value="flexible">Flexible</option>
                                 </select>
-                                <div class="field-error" id="timeline-error" aria-live="polite"></div>
+                                <div class="field-error" id="timeline-error" aria-live="polite" role="alert"></div>
                             </div>
                             
                             <div class="form-group">
                                 <label for="message">Tell Us About Your Project *</label>
-                                <textarea id="message" name="message" required placeholder="Describe your AI vision, current challenges, or what you'd like to accomplish. The more details you share, the better we can help you strike digital gold!"></textarea>
-                                <div class="field-error" id="message-error" aria-live="polite"></div>
+                                <textarea id="message" name="message" required placeholder="Describe your AI vision, current challenges, or what you'd like to accomplish. The more details you share, the better we can help you strike digital gold!" aria-describedby="message-error" aria-invalid="false"></textarea>
+                                <div class="field-error" id="message-error" aria-live="polite" role="alert"></div>
                             </div>
                             
-                            <button type="submit" class="btn btn-primary" id="submit-btn">
+                            <button type="submit" class="btn btn-primary" id="submit-btn" aria-describedby="form-status">
                                 <span class="btn-text">Send Message</span>
                                 <span class="btn-loading" style="display: none;">
-                                    <i class="fas fa-spinner fa-spin"></i>
+                                    <i class="fas fa-spinner fa-spin" aria-hidden="true"></i>
                                     Sending...
                                 </span>
                             </button>
@@ -326,10 +329,12 @@
                 // Update field styling and error message
                 if (!isValid) {
                     field.classList.add('error');
+                    field.setAttribute('aria-invalid', 'true');
                     errorElement.textContent = errorMessage;
                     errorElement.style.display = 'block';
                 } else {
                     field.classList.remove('error');
+                    field.setAttribute('aria-invalid', 'false');
                     errorElement.textContent = '';
                     errorElement.style.display = 'none';
                 }
