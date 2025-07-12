@@ -78,19 +78,7 @@
     <a href="#main-content" class="skip-link">Skip to main content</a>
     
     <header class="header">
-        <nav class="nav" role="navigation" aria-label="Main navigation">
-            <div class="nav-brand">
-                <h1 class="logo">RoughingIt Labs</h1>
-                <p class="tagline">Pioneering AI Solutions Since the Digital Frontier</p>
-            </div>
-            <ul class="nav-links">
-                <li><a href="index.html">Home</a></li>
-                <li><a href="about.html">About</a></li>
-                <li><a href="services.html">Services</a></li>
-                <li><a href="products.html" class="active" aria-current="page">Products</a></li>
-                <li><a href="contact.html">Contact</a></li>
-            </ul>
-        </nav>
+        <div include-html="header.html"> </div>
     </header>
 
     <main id="main-content" role="main">
@@ -112,7 +100,7 @@
 
         <section class="products-grid">
             <div class="container">
-                <div class="product-showcase">
+                <div id="diner-droid" class="product-showcase">
                     <div class="product-card featured">
                         <div class="product-header">
                             <img src="images/dinerdroid-header.png" alt="DinerDroid App" class="product-icon" loading="lazy">
@@ -154,7 +142,7 @@
                     </div>
                 </div>
 
-                <div class="product-showcase">
+                <div id = "auto-mind" class="product-showcase">
                     <div class="product-card featured">
                         <div class="product-header">
                             <img src="images/automind-header-icon.png" alt="AutoMind App" class="product-icon" loading="lazy">
@@ -236,41 +224,20 @@
         </section>
     </main>
 
-    <footer class="footer">
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-brand">
-                    <h4>RoughingIt Labs</h4>
-                    <p>AI Development & Consulting</p>
-                </div>
-                <div class="footer-links">
-                    <div class="footer-section">
-                        <h5>Company</h5>
-                        <ul>
-                            <li><a href="about.html">About</a></li>
-                            <li><a href="services.html">Services</a></li>
-                            <li><a href="products.html">Products</a></li>
-                            <li><a href="contact.html">Contact</a></li>
-                        </ul>
-                    </div>
-                    <div class="footer-section">
-                        <h5>Territory</h5>
-                        <ul>
-                            <li>Las Vegas, Nevada</li>
-                            <li>hello@roughingitlabs.com</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-            <div class="footer-bottom">
-                <p>&copy; 2025 RoughingIt Labs. All rights reserved. | Pioneering AI since the digital gold rush.</p>
-            </div>
-        </div>
-    </footer>
+    <div include-html="footer.html"> </div>
 
 
     
-    <!-- Performance Optimization Script -->
+
+    <script src="load-html.js"></script>
+    <script> 
+        includeHTML();
+        document.addEventListener('DOMContentLoaded', async () => {
+            await includeHTML();
+            setActive('products');
+            scrollToHash();
+        });
+    </script>
     <script src="lazy-loading.js"></script>
 </body>
 </html> 

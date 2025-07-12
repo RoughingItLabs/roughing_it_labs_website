@@ -67,19 +67,7 @@
     <a href="#main-content" class="skip-link">Skip to main content</a>
     
     <header class="header">
-        <nav class="nav" role="navigation" aria-label="Main navigation">
-            <div class="nav-brand">
-                <h1 class="logo">RoughingIt Labs</h1>
-                <p class="tagline">Pioneering AI Solutions Since the Digital Frontier</p>
-            </div>
-            <ul class="nav-links">
-                <li><a href="index.html">Home</a></li>
-                <li><a href="about.html">About</a></li>
-                <li><a href="services.html">Services</a></li>
-                <li><a href="products.html">Products</a></li>
-                <li><a href="contact.html" class="active" aria-current="page">Contact</a></li>
-            </ul>
-        </nav>
+        <div include-html="header.html"> </div>
     </header>
 
     <main id="main-content" role="main">
@@ -102,7 +90,7 @@
         <section class="contact-content">
             <div class="container">
                 <div class="contact-grid">
-                    <div class="contact-form">
+                    <div id="contact-form" class="contact-form">
                         <h4>Send Us a Message</h4>
                         
                         <!-- ARIA Live Region for Screen Readers -->
@@ -207,7 +195,7 @@
                             <div class="contact-item-content">
                                 <h5>Las Vegas Office</h5>
                                 <p>Las Vegas, Nevada<br>
-                                (Our home base in the silver state)</p>
+                                (Our home base in the Silver State)</p>
                             </div>
                         </div>
 
@@ -239,8 +227,7 @@
                             </div>
                             <div class="contact-item-content">
                                 <h5>Service Area</h5>
-                                <p>Global (Remote-first)<br>
-                                North America preferred</p>
+                                <p>Global (Remote-first)</p>
                             </div>
                         </div>
                     </div>
@@ -279,50 +266,17 @@
         </section>
     </main>
 
-    <footer class="footer">
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-brand">
-                    <h4>RoughingIt Labs</h4>
-                    <p>Pioneering AI Solutions Since the Digital Frontier</p>
-                </div>
-                <div class="footer-links">
-                    <div class="footer-section">
-                        <h5>Navigation</h5>
-                        <ul>
-                            <li><a href="index.html">Home</a></li>
-                            <li><a href="about.html">About</a></li>
-                            <li><a href="services.html">Services</a></li>
-                            <li><a href="products.html">Products</a></li>
-                            <li><a href="contact.html">Contact</a></li>
-                        </ul>
-                    </div>
-                    <div class="footer-section">
-                        <h5>Services</h5>
-                        <ul>
-                            <li><a href="services.html#mobile-apps">Mobile Apps</a></li>
-                            <li><a href="services.html#ai-agents">AI Agents</a></li>
-                            <li><a href="services.html#consulting">Consulting</a></li>
-                            <li><a href="services.html#prototyping">Prototyping</a></li>
-                            <li><a href="services.html#integration">Integration</a></li>
-                        </ul>
-                    </div>
-                    <div class="footer-section">
-                        <h5>Products</h5>
-                        <ul>
-                            <li><a href="products.html#dinerdroid">DinerDroid</a></li>
-                            <li><a href="products.html#automind">AutoMind</a></li>
-                            <li><a href="dinerdroid-privacy.html">Privacy Policy</a></li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-            <div class="footer-bottom">
-                <p>&copy; 2024 RoughingIt Labs. All rights reserved. | Las Vegas, Nevada</p>
-            </div>
-        </div>
-    </footer>
+    <div include-html="footer.html"> </div>
 
+    <script src="load-html.js"></script>
+    <script> 
+        includeHTML();
+        document.addEventListener('DOMContentLoaded', async () => {
+            await includeHTML();
+            setActive('contact');
+            scrollToHash();
+        });
+    </script>
     <script>
         // Form validation and submission handling
         document.addEventListener('DOMContentLoaded', function() {

@@ -16,19 +16,7 @@
     <a href="#main-content" class="skip-link">Skip to main content</a>
     
     <header class="header">
-        <nav class="nav" role="navigation" aria-label="Main navigation">
-            <div class="nav-brand">
-                <h1 class="logo">RoughingIt Labs</h1>
-                <p class="tagline">Pioneering AI Solutions Since the Digital Frontier</p>
-            </div>
-            <ul class="nav-links">
-                <li><a href="index.html">Home</a></li>
-                <li><a href="about.html">About</a></li>
-                <li><a href="services.html" class="active" aria-current="page">Services</a></li>
-                <li><a href="products.html">Products</a></li>
-                <li><a href="contact.html">Contact</a></li>
-            </ul>
-        </nav>
+        <div include-html="header.html"> </div>
     </header>
 
     <main id="main-content" role="main">
@@ -51,7 +39,7 @@
         <section class="features">
             <div class="container">
                 <div class="services-grid">
-                    <div class="service-card" data-service="mobile-apps">
+                    <div id="mobile-apps" class="service-card" data-service="mobile-apps">
                         <div class="service-header">
                             <div class="service-icon"><i class="fas fa-mobile-alt"></i></div>
                             <h4>AI-Powered Mobile Apps</h4>
@@ -86,7 +74,7 @@
                         </div>
                     </div>
 
-                    <div class="service-card" data-service="ai-agents">
+                    <div id="ai-agents" class="service-card" data-service="ai-agents">
                         <div class="service-header">
                             <div class="service-icon"><i class="fas fa-robot"></i></div>
                             <h4>AI Agents & Automation</h4>
@@ -121,7 +109,7 @@
                         </div>
                     </div>
 
-                    <div class="service-card" data-service="consulting">
+                    <div id="consulting" class="service-card" data-service="consulting">
                         <div class="service-header">
                             <div class="service-icon"><i class="fas fa-mountain"></i></div>
                             <h4>AI Consulting & Strategy</h4>
@@ -156,7 +144,7 @@
                         </div>
                     </div>
 
-                    <div class="service-card" data-service="prototyping">
+                    <div id="prototyping" class="service-card" data-service="prototyping">
                         <div class="service-header">
                             <div class="service-icon"><i class="fas fa-bolt"></i></div>
                             <h4>Rapid Prototyping</h4>
@@ -191,7 +179,7 @@
                         </div>
                     </div>
 
-                    <div class="service-card" data-service="integration">
+                    <div id="integration" class="service-card" data-service="integration">
                         <div class="service-header">
                             <div class="service-icon"><i class="fas fa-tools"></i></div>
                             <h4>AI Integration Services</h4>
@@ -226,7 +214,7 @@
                         </div>
                     </div>
 
-                    <div class="service-card" data-service="other">
+                    <div id="other" class="service-card" data-service="other">
                         <div class="service-header">
                             <div class="service-icon"><i class="fas fa-question-circle"></i></div>
                             <h4>Other / Not Sure?</h4>
@@ -291,38 +279,17 @@
         </section>
     </main>
 
-    <footer class="footer">
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-brand">
-                    <h4>RoughingIt Labs</h4>
-                    <p>AI Development & Consulting</p>
-                </div>
-                <div class="footer-links">
-                    <div class="footer-section">
-                        <h5>Company</h5>
-                        <ul>
-                            <li><a href="about.html">About</a></li>
-                            <li><a href="services.html">Services</a></li>
-                            <li><a href="products.html">Products</a></li>
-                            <li><a href="contact.html">Contact</a></li>
-                        </ul>
-                    </div>
-                    <div class="footer-section">
-                        <h5>Territory</h5>
-                        <ul>
-                            <li>Las Vegas, Nevada</li>
-                            <li>hello@roughingitlabs.com</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-            <div class="footer-bottom">
-                <p>&copy; 2025 RoughingIt Labs. All rights reserved. | Pioneering AI since the digital gold rush.</p>
-            </div>
-        </div>
-    </footer>
+    <div include-html="footer.html"> </div>
 
+    <script src="load-html.js"></script>
+    <script>
+        includeHTML();
+        document.addEventListener('DOMContentLoaded', async () => {
+            await includeHTML();
+            setActive('services');
+            scrollToHash();
+        });
+    </script>
     <script>
         // Collapsible Service Cards - Functional JavaScript Implementation
         (function() {

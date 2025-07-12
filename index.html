@@ -15,19 +15,7 @@
     <a href="#main-content" class="skip-link">Skip to main content</a>
     
     <header class="header">
-        <nav class="nav" role="navigation" aria-label="Main navigation">
-            <div class="nav-brand">
-                <h1 class="logo">RoughingIt Labs</h1>
-                <p class="tagline">Pioneering AI Solutions Since the Digital Frontier</p>
-            </div>
-            <ul class="nav-links">
-                <li><a href="index.html" class="active" aria-current="page">Home</a></li>
-                <li><a href="about.html">About</a></li>
-                <li><a href="services.html">Services</a></li>
-                <li><a href="products.html">Products</a></li>
-                <li><a href="contact.html">Contact</a></li>
-            </ul>
-        </nav>
+        <div include-html="header.html"> </div>
     </header>
 
     <main id="main-content" role="main">
@@ -112,209 +100,187 @@
         </section>
     </main>
 
-    <footer class="footer">
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-brand">
-                    <h4>RoughingIt Labs</h4>
-                    <p>AI Development & Consulting</p>
-                </div>
-                <div class="footer-links">
-                    <div class="footer-section">
-                        <h5>Company</h5>
-                        <ul>
-                            <li><a href="about.html">About</a></li>
-                            <li><a href="services.html">Services</a></li>
-                            <li><a href="products.html">Products</a></li>
-                            <li><a href="contact.html">Contact</a></li>
-                        </ul>
-                    </div>
-                    <div class="footer-section">
-                        <h5>Territory</h5>
-                        <ul>
-                            <li>Las Vegas, Nevada</li>
-                            <li>hello@roughingitlabs.com</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-            <div class="footer-bottom">
-                <p>&copy; 2025 RoughingIt Labs. All rights reserved. | Pioneering AI since the digital gold rush.</p>
-            </div>
-        </div>
-    </footer>
+    <div include-html="footer.html"> </div>
+
+    <!-- Performance Optimization Script -->
+    <script src="load-html.js"></script>
+    <script>includeHTML();
+        // once all placeholders are filled, you can safely call your setActive()
+        document.addEventListener('DOMContentLoaded', async () => {
+            await includeHTML();
+            setActive('home');
+        });
+    </script>
+
+
 
     <script>
-        // Feature Carousel - Functional JavaScript Implementation
-        (function() {
-            'use strict';
+    (function() {
+        'use strict';
+        
+        // Carousel state
+        let currentIndex = 0;
+        let autoPlayInterval;
+        let isPaused = false;
+        
+        // DOM elements
+        const carousel = document.querySelector('.feature-carousel');
+        const track = carousel?.querySelector('.carousel-track');
+        const cards = track?.querySelectorAll('.feature-card');
+        const arrows = carousel?.querySelectorAll('.carousel-arrow');
+        const dots = carousel?.querySelectorAll('.carousel-dot');
+        
+        if (!carousel || !track || !cards.length) return;
+        
+        const totalCards = cards.length;
+        
+        // Utility functions
+        const updateActiveCard = (index) => {
+            // Update cards visibility
+            cards.forEach((card, i) => {
+                card.style.display = i === index ? 'block' : 'none';
+                card.setAttribute('aria-hidden', i !== index);
+            });
             
-            // Carousel state
-            let currentIndex = 0;
-            let autoPlayInterval;
-            let isPaused = false;
+            // Update dots
+            dots.forEach((dot, i) => {
+                dot.setAttribute('aria-selected', i === index);
+                dot.setAttribute('tabindex', i === index ? '0' : '-1');
+            });
             
-            // DOM elements
-            const carousel = document.querySelector('.feature-carousel');
-            const track = carousel?.querySelector('.carousel-track');
-            const cards = track?.querySelectorAll('.feature-card');
-            const arrows = carousel?.querySelectorAll('.carousel-arrow');
-            const dots = carousel?.querySelectorAll('.carousel-dot');
+            // Update arrows
+            arrows[0].setAttribute('aria-label', `Previous feature (${index === 0 ? totalCards : index} of ${totalCards})`);
+            arrows[1].setAttribute('aria-label', `Next feature (${index === totalCards - 1 ? 1 : index + 2} of ${totalCards})`);
             
-            if (!carousel || !track || !cards.length) return;
+            // Announce to screen readers
+            const liveRegion = document.querySelector('[aria-live="polite"]') || 
+                (() => {
+                    const region = document.createElement('div');
+                    region.setAttribute('aria-live', 'polite');
+                    region.setAttribute('aria-label', 'Carousel updates');
+                    region.style.position = 'absolute';
+                    region.style.left = '-10000px';
+                    region.style.width = '1px';
+                    region.style.height = '1px';
+                    region.style.overflow = 'hidden';
+                    document.body.appendChild(region);
+                    return region;
+                })();
             
-            const totalCards = cards.length;
-            
-            // Utility functions
-            const updateActiveCard = (index) => {
-                // Update cards visibility
-                cards.forEach((card, i) => {
-                    card.style.display = i === index ? 'block' : 'none';
-                    card.setAttribute('aria-hidden', i !== index);
-                });
-                
-                // Update dots
-                dots.forEach((dot, i) => {
-                    dot.setAttribute('aria-selected', i === index);
-                    dot.setAttribute('tabindex', i === index ? '0' : '-1');
-                });
-                
-                // Update arrows
-                arrows[0].setAttribute('aria-label', `Previous feature (${index === 0 ? totalCards : index} of ${totalCards})`);
-                arrows[1].setAttribute('aria-label', `Next feature (${index === totalCards - 1 ? 1 : index + 2} of ${totalCards})`);
-                
-                // Announce to screen readers
-                const liveRegion = document.querySelector('[aria-live="polite"]') || 
-                    (() => {
-                        const region = document.createElement('div');
-                        region.setAttribute('aria-live', 'polite');
-                        region.setAttribute('aria-label', 'Carousel updates');
-                        region.style.position = 'absolute';
-                        region.style.left = '-10000px';
-                        region.style.width = '1px';
-                        region.style.height = '1px';
-                        region.style.overflow = 'hidden';
-                        document.body.appendChild(region);
-                        return region;
-                    })();
-                
-                liveRegion.textContent = `Feature ${index + 1} of ${totalCards}: ${cards[index].querySelector('h4').textContent}`;
-            };
-            
-            const goToCard = (index) => {
-                currentIndex = (index + totalCards) % totalCards;
-                updateActiveCard(currentIndex);
-            };
-            
-            const nextCard = () => goToCard(currentIndex + 1);
-            const prevCard = () => goToCard(currentIndex - 1);
-            
-            // Auto-play functionality
-            const startAutoPlay = () => {
-                if (autoPlayInterval) clearInterval(autoPlayInterval);
-                autoPlayInterval = setInterval(() => {
-                    if (!isPaused) nextCard();
-                }, 5000);
-            };
-            
-            const stopAutoPlay = () => {
-                if (autoPlayInterval) {
-                    clearInterval(autoPlayInterval);
-                    autoPlayInterval = null;
-                }
-            };
-            
-            // Event listeners
-            const handleArrowClick = (direction) => {
-                stopAutoPlay();
-                if (direction === 'next') nextCard();
-                else prevCard();
-                startAutoPlay();
-            };
-            
-            const handleDotClick = (index) => {
-                stopAutoPlay();
-                goToCard(index);
-                startAutoPlay();
-            };
-            
-            const handleKeyDown = (e) => {
-                switch(e.key) {
-                    case 'ArrowLeft':
-                        e.preventDefault();
-                        handleArrowClick('prev');
-                        break;
-                    case 'ArrowRight':
-                        e.preventDefault();
-                        handleArrowClick('next');
-                        break;
-                    case 'Home':
-                        e.preventDefault();
-                        handleDotClick(0);
-                        break;
-                    case 'End':
-                        e.preventDefault();
-                        handleDotClick(totalCards - 1);
-                        break;
-                }
-            };
-            
-            const handleMouseEnter = () => {
-                isPaused = true;
-            };
-            
-            const handleMouseLeave = () => {
-                isPaused = false;
-            };
-            
-            const handleFocus = () => {
-                isPaused = true;
-            };
-            
-            const handleBlur = () => {
-                isPaused = false;
-            };
-            
-            // Initialize carousel
-            const initCarousel = () => {
-                // Set up event listeners
-                arrows[0].addEventListener('click', () => handleArrowClick('prev'));
-                arrows[1].addEventListener('click', () => handleArrowClick('next'));
-                
-                dots.forEach((dot, index) => {
-                    dot.addEventListener('click', () => handleDotClick(index));
-                });
-                
-                // Keyboard navigation
-                carousel.addEventListener('keydown', handleKeyDown);
-                
-                // Pause on hover/focus
-                carousel.addEventListener('mouseenter', handleMouseEnter);
-                carousel.addEventListener('mouseleave', handleMouseLeave);
-                carousel.addEventListener('focusin', handleFocus);
-                carousel.addEventListener('focusout', handleBlur);
-                
-                // Initialize first card
-                updateActiveCard(0);
-                
-                // Start auto-play
-                startAutoPlay();
-            };
-            
-            // Initialize when DOM is ready
-            if (document.readyState === 'loading') {
-                document.addEventListener('DOMContentLoaded', initCarousel);
-            } else {
-                initCarousel();
+            liveRegion.textContent = `Feature ${index + 1} of ${totalCards}: ${cards[index].querySelector('h4').textContent}`;
+        };
+        
+        const goToCard = (index) => {
+            currentIndex = (index + totalCards) % totalCards;
+            updateActiveCard(currentIndex);
+        };
+        
+        const nextCard = () => goToCard(currentIndex + 1);
+        const prevCard = () => goToCard(currentIndex - 1);
+        
+        // Auto-play functionality
+        const startAutoPlay = () => {
+            if (autoPlayInterval) clearInterval(autoPlayInterval);
+            autoPlayInterval = setInterval(() => {
+                if (!isPaused) nextCard();
+            }, 5000);
+        };
+        
+        const stopAutoPlay = () => {
+            if (autoPlayInterval) {
+                clearInterval(autoPlayInterval);
+                autoPlayInterval = null;
             }
+        };
+        
+        // Event listeners
+        const handleArrowClick = (direction) => {
+            stopAutoPlay();
+            if (direction === 'next') nextCard();
+            else prevCard();
+            startAutoPlay();
+        };
+        
+        const handleDotClick = (index) => {
+            stopAutoPlay();
+            goToCard(index);
+            startAutoPlay();
+        };
+        
+        const handleKeyDown = (e) => {
+            switch(e.key) {
+                case 'ArrowLeft':
+                    e.preventDefault();
+                    handleArrowClick('prev');
+                    break;
+                case 'ArrowRight':
+                    e.preventDefault();
+                    handleArrowClick('next');
+                    break;
+                case 'Home':
+                    e.preventDefault();
+                    handleDotClick(0);
+                    break;
+                case 'End':
+                    e.preventDefault();
+                    handleDotClick(totalCards - 1);
+                    break;
+            }
+        };
+        
+        const handleMouseEnter = () => {
+            isPaused = true;
+        };
+        
+        const handleMouseLeave = () => {
+            isPaused = false;
+        };
+        
+        const handleFocus = () => {
+            isPaused = true;
+        };
+        
+        const handleBlur = () => {
+            isPaused = false;
+        };
+        
+        // Initialize carousel
+        const initCarousel = () => {
+            // Set up event listeners
+            arrows[0].addEventListener('click', () => handleArrowClick('prev'));
+            arrows[1].addEventListener('click', () => handleArrowClick('next'));
             
-            // Cleanup on page unload
-            window.addEventListener('beforeunload', stopAutoPlay);
+            dots.forEach((dot, index) => {
+                dot.addEventListener('click', () => handleDotClick(index));
+            });
             
-        })();
-    </script>
-    
-    <!-- Performance Optimization Script -->
-    <script src="lazy-loading.js"></script>
+            // Keyboard navigation
+            carousel.addEventListener('keydown', handleKeyDown);
+            
+            // Pause on hover/focus
+            carousel.addEventListener('mouseenter', handleMouseEnter);
+            carousel.addEventListener('mouseleave', handleMouseLeave);
+            carousel.addEventListener('focusin', handleFocus);
+            carousel.addEventListener('focusout', handleBlur);
+            
+            // Initialize first card
+            updateActiveCard(0);
+            
+            // Start auto-play
+            startAutoPlay();
+        };
+        
+        // Initialize when DOM is ready
+        if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', initCarousel);
+        } else {
+            initCarousel();
+        }
+        
+        // Cleanup on page unload
+        window.addEventListener('beforeunload', stopAutoPlay);
+        
+    })();</script>
+
 </body>
 </html> 

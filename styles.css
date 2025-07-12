@@ -31,6 +31,11 @@
     box-sizing: border-box;
 }
 
+html {
+    scroll-behavior: smooth;
+    scroll-padding: 2rem;
+}
+
 /* Enhanced background system with sophisticated gradients */
 body {
     font-family: var(--font-body);
@@ -190,7 +195,7 @@ section + section {
         linear-gradient(135deg, rgba(139, 69, 19, 0.8) 0%, rgba(47, 27, 20, 0.9) 100%),
         radial-gradient(circle at 30% 70%, rgba(218, 165, 32, 0.3) 0%, transparent 50%),
         radial-gradient(circle at 70% 30%, rgba(210, 105, 30, 0.2) 0%, transparent 50%),
-        url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="mountains" x="0" y="0" width="20" height="20" patternUnits="userSpaceOnUse"><polygon points="0,20 10,0 20,20" fill="%23654321" opacity="0.1"/></pattern></defs><rect width="100" height="100" fill="url(%23mountains)"/></svg>');
+                url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="mountains" x="0" y="0" width="20" height="20" patternUnits="userSpaceOnUse"><polygon points="0,20 10,0 20,20" fill="%23654321" opacity="0.1"/></pattern></defs><rect width="100" height="100" fill="url(%23mountains)"/></svg>');
     background-size: cover, cover, cover, cover;
     background-position: center, center, center, center;
     padding: 4rem 0 5rem;
@@ -1555,7 +1560,6 @@ section + section {
 .footer-content {
     display: grid;
     grid-template-columns: 1fr 2fr;
-    gap: 2rem;
     margin-bottom: 2rem;
     position: relative;
     z-index: 2;
@@ -1574,26 +1578,37 @@ section + section {
     gap: 2rem;
 }
 
+.footer-section {
+   display: grid;
+  /* auto-fit will collapse empty slots on smaller screens */
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  padding: 2rem 1rem;      /* optional breathing room */
+}
 .footer-section h5 {
     font-family: var(--font-heading);
     color: var(--accent-color);
-    margin-bottom: 1rem;
+    margin-bottom: 0.5rem;
+    font-size: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
 }
 
 .footer-section ul {
     list-style: none;
+    padding: 0;
+    margin: 0;
 }
 
-.footer-section ul li {
-    margin-bottom: 0.5rem;
-}
+
+.footer-column ul li + li {
+    margin-top: 0.5rem;     /* space between links */
+  }
 
 .footer-section ul li a {
     color: var(--text-light);
     text-decoration: none;
     transition: all 0.3s ease;
     padding: 0.2rem 0;
-    display: inline-block;
 }
 
 .footer-section ul li a:hover {
@@ -1685,6 +1700,7 @@ section + section {
     .screenshot-gallery {
         grid-template-columns: 1fr;
         gap: 1rem;
+        justify-items: center;
     }
 }
 
@@ -2621,21 +2637,10 @@ a:focus:not(:focus-visible) {
     margin-top: 4rem;
 }
 
-.footer-content {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    gap: 3rem;
-    padding-bottom: 2rem;
-}
-
 .footer-section ul {
     list-style: none;
     padding: 0;
     margin: 0;
-    display: flex;
-    flex-direction: column;
-    gap: 1.2rem;
 }
 
 .footer-section {
@@ -2644,6 +2649,7 @@ a:focus:not(:focus-visible) {
 
 .footer-brand {
     margin-bottom: 2rem;
+    width: fit-content;
 }
 
 .footer-bottom {
@@ -3092,10 +3098,12 @@ img[loading="lazy"].loaded {
     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
     gap: 1.5rem;
     margin-top: 1rem;
+    justify-items: center;
 }
 
 .screenshot-item {
     text-align: center;
+    width: fit-content;
 }
 
 .screenshot-img {
@@ -3118,12 +3126,14 @@ img[loading="lazy"].loaded {
     font-size: 0.9rem;
     color: #8b4513;
     font-weight: 600;
+    align-content: center;
 }
 
 @media (max-width: 768px) {
     .screenshot-gallery {
         grid-template-columns: 1fr;
         gap: 1rem;
+        justify-items: center;
     }
     
     .screenshot-img {
@@ -3140,4 +3150,4 @@ img[loading="lazy"].loaded {
 
 .product-text-center {
     text-align: center;
-}
+} 
