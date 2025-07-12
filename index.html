@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>RoughingIt Labs - AI Development & Consulting</title>
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="css/styles.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Crimson+Text:wght@400;600&display=swap" rel="stylesheet">
@@ -15,274 +15,104 @@
     <a href="#main-content" class="skip-link">Skip to main content</a>
     
     <header class="header">
-        <div include-html="header.html"> </div>
+        <div include-html="pages/header.html"> </div>
     </header>
-
+    
     <main id="main-content" role="main">
         <section class="hero">
-            <div class="hero-content">
-                
+            <div class="container hero-grid">
+              <!-- Left column: all your existing text/ticker/buttons -->
+              <div class="hero-text">
                 <h2 class="hero-title">Striking Gold in the AI Frontier</h2>
-                <p class="hero-subtitle">From the Nevada Territory to Neural Networks</p>
+                
                 <p class="hero-description">
-                    We're modern-day prospectors, mining the rich veins of artificial intelligence to build mobile applications that would make even Mark Twain tip his hat. Established in the spirit of the 1860s Nevada boom towns, we bring that same pioneering determination to today's AI revolution.
+                  We’re modern-day prospectors, mining the rich veins of artificial intelligence to build mobile applications that would make even Mark Twain tip his hat. Established in the spirit of the 1860s Nevada boom towns, we bring that same pioneering determination to today’s AI revolution.
                 </p>
-
-                <p class="value-prop" style="font-size:1.4rem;font-weight:700;color:var(--accent-color);margin-bottom:1.2rem;">AI-Powered Mobile Apps for the Digital Frontier</p>
-                <div class="hero-buttons" style="margin-bottom:2rem;">
-                    <a href="services.html" class="btn btn-primary">Explore Our Services</a>
-                    <a href="contact.html" class="btn btn-secondary">Partner With Us</a>
+                <p class="value-prop">
+                  AI-Powered Mobile Apps for the Digital Frontier
+                </p>
+                <div class="hero-buttons">
+                  <a href="pages/services.html" class="btn btn-primary">Explore Our Services</a>
+                  <a href="pages/contact.html" class="btn btn-secondary">Partner With Us</a>
                 </div>
+              </div>
+          
+              <!-- Right column: drop in an SVG or image -->
+              <div class="hero-illustration">
+                <img src="images/horse_sillouette.png" alt="Illustration of galloping horse">
+              </div>
             </div>
-        </section>
+          </section>
+          
 
-        <section class="features">
-            <div class="container">
-                <h3 class="section-title">What We Prospect For</h3>
-                <div class="feature-carousel" aria-label="Feature Carousel">
-                    <button class="carousel-arrow carousel-arrow-left" aria-label="Previous feature" tabindex="0">
-                        <i class="fas fa-chevron-left"></i>
-                    </button>
-                    <div class="carousel-track">
-                        <div class="feature-card" data-index="0">
-                            <div class="feature-icon">
-                                <i class="fas fa-robot"></i>
-                            </div>
-                            <h4>AI-Powered Mobile Apps</h4>
-                            <p>We build mobile applications that harness the power of modern LLMs like OpenAI's GPT, Grok, and other cutting-edge AI models.</p>
-                        </div>
-                        <div class="feature-card" data-index="1">
-                            <div class="feature-icon">
-                                <i class="fas fa-bolt"></i>
-                            </div>
-                            <h4>AI Agents & Automation</h4>
-                            <p>Custom AI agents that work tirelessly, like the hardworking miners of the Comstock Lode, automating tasks and solving complex problems.</p>
-                        </div>
-                        <div class="feature-card" data-index="2">
-                            <div class="feature-icon">
-                                <i class="fas fa-mountain"></i>
-                            </div>
-                            <h4>Consulting & Development</h4>
-                            <p>Whether you're a startup or an established company, we'll help you stake your claim in the AI territory with expert consulting and development.</p>
-                        </div>
-                    </div>
-                    <button class="carousel-arrow carousel-arrow-right" aria-label="Next feature" tabindex="0">
-                        <i class="fas fa-chevron-right"></i>
-                    </button>
-                    <div class="carousel-indicators" role="tablist" aria-label="Feature indicators">
-                        <button class="carousel-dot" aria-label="Show first feature" aria-selected="true" role="tab" tabindex="0"></button>
-                        <button class="carousel-dot" aria-label="Show second feature" aria-selected="false" role="tab" tabindex="-1"></button>
-                        <button class="carousel-dot" aria-label="Show third feature" aria-selected="false" role="tab" tabindex="-1"></button>
-                    </div>
+        <section class="features-overview">
+            <div class="container grid-intro">
+              <div class="intro-text">
+                <h2>What We Prospect For</h2>
+                
+              </div>
+              <div class="intro-text">
+                <p> Like the adventurers Mark Twain wrote about in "Roughing It," we've set up camp where opportunity meets innovation. Based in Las Vegas, Nevada, we're perfectly positioned to help businesses across the frontier of AI technology. </p>
+
+                <p>Our team combines the grit and determination of 1860s prospectors with the expertise of modern AI engineers. We don't just follow trends—we blaze new trails in mobile app development and AI integration.</p>
+                <p>Whether you’re a startup or an established company, we’ll help you stake your claim in the AI territory with expert consulting and development.</p>
+              </div>
+            </div>
+          
+            <div class="container prospect-grid">
+                <div class="prospect-card">
+                  <i class="fas fa-mobile-alt prospect-icon"></i>
+                  <h4>AI-Powered Mobile Apps</h4>
+                  <p>Harness modern LLMs like GPT to supercharge your mobile experience.</p>
                 </div>
-            </div>
-        </section>
-
-        <section class="about-preview">
-            <div class="container">
-                <div class="about-content">
-                    <h3>From Nevada, Serving the Digital Territory</h3>
-                    <p>
-                        Like the adventurers Mark Twain wrote about in "Roughing It," we've set up camp where opportunity meets innovation. Based in Las Vegas, Nevada, we're perfectly positioned to help businesses across the frontier of AI technology.
-                    </p>
-                    <p>
-                        Our team combines the grit and determination of 1860s prospectors with the expertise of modern AI engineers. We don't just follow trends—we blaze new trails in mobile app development and AI integration.
-                    </p>
-                    <a href="about.html" class="btn btn-secondary">Learn Our Story</a>
+                <div class="prospect-card">
+                  <i class="fas fa-robot prospect-icon"></i>
+                  <h4>AI Agents & Automation</h4>
+                  <p>Custom agents mining data and automating workflows 24/7.</p>
                 </div>
+                <div class="prospect-card">
+                  <i class="fas fa-plug prospect-icon"></i>
+                  <h4>AI Integration</h4>
+                  <p>Blend new AI into your existing tools—no pick-axe required.</p>
+                </div>
+                <div class="prospect-card">
+                  <i class="fas fa-users prospect-icon"></i>
+                  <h4>Get to Know the Team</h4>
+                  <p>1860s grit meets modern AI—see how we turned prospecting into a digital adventure.</p>
+                </div>
+              </div>
+          </section>
+          <section class="values">
+            <div class="ticker-container">
+            <div class="ticker-content">
+              <a href="pages/services.html#mobile-apps">AI-Powered Mobile Apps</a>
+              <a href="pages/services.html#ai-agents">AI Agents & Automation</a>
+              <a href="pages/services.html#consulting">Expert Consulting</a>
+              <a href="pages/services.html#prototyping">Prototyping & Development</a>
+              <a href="pages/services.html#integration">AI Integration in Existing Systems</a>
+              <a href="pages/services.html#other">Other Ideas YOU come up with</a>
             </div>
+          </div>
         </section>
-
         <section class="cta">
             <div class="container">
                 <h3>Ready to Strike Gold?</h3>
                 <p>Let's prospect for AI solutions that will transform your business. Drop us a line at the digital saloon.</p>
-                <a href="contact.html" class="btn btn-primary">Get In Touch</a>
+                <a href="pages/contact.html" class="btn btn-primary">Get In Touch</a>
             </div>
         </section>
     </main>
 
-    <div include-html="footer.html"> </div>
+    <div include-html="pages/footer.html"> </div>
 
-    <!-- Performance Optimization Script -->
-    <script src="load-html.js"></script>
-    <script>includeHTML();
-        // once all placeholders are filled, you can safely call your setActive()
-        document.addEventListener('DOMContentLoaded', async () => {
-            await includeHTML();
-            setActive('home');
-        });
-    </script>
-
-
-
+    <!-- JavaScript Files -->
+    <script src="js/load-html.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/header-scroll.js"></script>
+    <script src="js/ticker-animation.js"></script>
     <script>
-    (function() {
-        'use strict';
-        
-        // Carousel state
-        let currentIndex = 0;
-        let autoPlayInterval;
-        let isPaused = false;
-        
-        // DOM elements
-        const carousel = document.querySelector('.feature-carousel');
-        const track = carousel?.querySelector('.carousel-track');
-        const cards = track?.querySelectorAll('.feature-card');
-        const arrows = carousel?.querySelectorAll('.carousel-arrow');
-        const dots = carousel?.querySelectorAll('.carousel-dot');
-        
-        if (!carousel || !track || !cards.length) return;
-        
-        const totalCards = cards.length;
-        
-        // Utility functions
-        const updateActiveCard = (index) => {
-            // Update cards visibility
-            cards.forEach((card, i) => {
-                card.style.display = i === index ? 'block' : 'none';
-                card.setAttribute('aria-hidden', i !== index);
-            });
-            
-            // Update dots
-            dots.forEach((dot, i) => {
-                dot.setAttribute('aria-selected', i === index);
-                dot.setAttribute('tabindex', i === index ? '0' : '-1');
-            });
-            
-            // Update arrows
-            arrows[0].setAttribute('aria-label', `Previous feature (${index === 0 ? totalCards : index} of ${totalCards})`);
-            arrows[1].setAttribute('aria-label', `Next feature (${index === totalCards - 1 ? 1 : index + 2} of ${totalCards})`);
-            
-            // Announce to screen readers
-            const liveRegion = document.querySelector('[aria-live="polite"]') || 
-                (() => {
-                    const region = document.createElement('div');
-                    region.setAttribute('aria-live', 'polite');
-                    region.setAttribute('aria-label', 'Carousel updates');
-                    region.style.position = 'absolute';
-                    region.style.left = '-10000px';
-                    region.style.width = '1px';
-                    region.style.height = '1px';
-                    region.style.overflow = 'hidden';
-                    document.body.appendChild(region);
-                    return region;
-                })();
-            
-            liveRegion.textContent = `Feature ${index + 1} of ${totalCards}: ${cards[index].querySelector('h4').textContent}`;
-        };
-        
-        const goToCard = (index) => {
-            currentIndex = (index + totalCards) % totalCards;
-            updateActiveCard(currentIndex);
-        };
-        
-        const nextCard = () => goToCard(currentIndex + 1);
-        const prevCard = () => goToCard(currentIndex - 1);
-        
-        // Auto-play functionality
-        const startAutoPlay = () => {
-            if (autoPlayInterval) clearInterval(autoPlayInterval);
-            autoPlayInterval = setInterval(() => {
-                if (!isPaused) nextCard();
-            }, 5000);
-        };
-        
-        const stopAutoPlay = () => {
-            if (autoPlayInterval) {
-                clearInterval(autoPlayInterval);
-                autoPlayInterval = null;
-            }
-        };
-        
-        // Event listeners
-        const handleArrowClick = (direction) => {
-            stopAutoPlay();
-            if (direction === 'next') nextCard();
-            else prevCard();
-            startAutoPlay();
-        };
-        
-        const handleDotClick = (index) => {
-            stopAutoPlay();
-            goToCard(index);
-            startAutoPlay();
-        };
-        
-        const handleKeyDown = (e) => {
-            switch(e.key) {
-                case 'ArrowLeft':
-                    e.preventDefault();
-                    handleArrowClick('prev');
-                    break;
-                case 'ArrowRight':
-                    e.preventDefault();
-                    handleArrowClick('next');
-                    break;
-                case 'Home':
-                    e.preventDefault();
-                    handleDotClick(0);
-                    break;
-                case 'End':
-                    e.preventDefault();
-                    handleDotClick(totalCards - 1);
-                    break;
-            }
-        };
-        
-        const handleMouseEnter = () => {
-            isPaused = true;
-        };
-        
-        const handleMouseLeave = () => {
-            isPaused = false;
-        };
-        
-        const handleFocus = () => {
-            isPaused = true;
-        };
-        
-        const handleBlur = () => {
-            isPaused = false;
-        };
-        
-        // Initialize carousel
-        const initCarousel = () => {
-            // Set up event listeners
-            arrows[0].addEventListener('click', () => handleArrowClick('prev'));
-            arrows[1].addEventListener('click', () => handleArrowClick('next'));
-            
-            dots.forEach((dot, index) => {
-                dot.addEventListener('click', () => handleDotClick(index));
-            });
-            
-            // Keyboard navigation
-            carousel.addEventListener('keydown', handleKeyDown);
-            
-            // Pause on hover/focus
-            carousel.addEventListener('mouseenter', handleMouseEnter);
-            carousel.addEventListener('mouseleave', handleMouseLeave);
-            carousel.addEventListener('focusin', handleFocus);
-            carousel.addEventListener('focusout', handleBlur);
-            
-            // Initialize first card
-            updateActiveCard(0);
-            
-            // Start auto-play
-            startAutoPlay();
-        };
-        
-        // Initialize when DOM is ready
-        if (document.readyState === 'loading') {
-            document.addEventListener('DOMContentLoaded', initCarousel);
-        } else {
-            initCarousel();
-        }
-        
-        // Cleanup on page unload
-        window.addEventListener('beforeunload', stopAutoPlay);
-        
-    })();</script>
+      initializePage('home');
+    </script>
 
 </body>
 </html> 
