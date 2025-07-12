@@ -67,7 +67,7 @@
         ]
     }
     </script>
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="styles.css?v=1.4">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Crimson+Text:wght@400;600&display=swap" rel="stylesheet">
@@ -217,10 +217,10 @@
 
                 <div class="coming-soon-products">
                     <h3>More AI Solutions in Development</h3>
-                    <p style="font-style: italic; color: #8b4513; text-align: center; margin: 2rem 0;">
+                    <p class="product-quote">
                         <em>"In the gold fields, it was not gold that was found first, but the promise of gold."</em> - Mark Twain
                     </p>
-                    <p style="text-align: center;">
+                    <p class="product-text-center">
                         We're constantly mining new veins of AI innovation. Stay tuned for more groundbreaking products that will help you stake your claim in the digital frontier.
                     </p>
                 </div>
@@ -268,206 +268,7 @@
         </div>
     </footer>
 
-    <style>
-        .products-intro {
-            padding: 3rem 0;
-            background: #f8f6f3;
-        }
 
-        .products-grid {
-            padding: 4rem 0;
-        }
-
-        .product-showcase {
-            margin-bottom: 4rem;
-        }
-
-        .product-card {
-            background: #fff;
-            border-radius: 12px;
-            padding: 3rem;
-            box-shadow: 0 4px 20px rgba(139, 69, 19, 0.1);
-            border: 2px solid #d4af37;
-        }
-
-        .product-card.featured {
-            border-color: #d4af37;
-            background: linear-gradient(135deg, #fff 0%, #fefcf6 100%);
-        }
-
-        .product-header {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin-bottom: 1.5rem;
-        }
-
-        .product-icon {
-            width: 120px;
-            height: auto;
-            margin-right: 1rem;
-        }
-
-        .product-info {
-            text-align: center;
-        }
-
-        .product-info h3 {
-            font-family: 'Playfair Display', serif;
-            font-size: 2.5rem;
-            color: #8b4513;
-            margin-bottom: 0.5rem;
-        }
-
-        .product-info .badge {
-            display: inline-block;
-            padding: 0.5rem 1rem;
-            border-radius: 20px;
-            font-weight: bold;
-            font-size: 0.9rem;
-            background: #d4af37;
-            color: #fff;
-            margin-top: 0.5rem;
-        }
-
-        .product-tagline {
-            text-align: center;
-            font-style: italic;
-            color: #d4af37;
-            font-size: 1.2rem;
-            margin-bottom: 2rem;
-        }
-
-        .product-description {
-            margin-bottom: 2rem;
-            font-size: 1.1rem;
-            line-height: 1.6;
-        }
-
-        .product-features {
-            margin-bottom: 2rem;
-        }
-
-        .product-features h4 {
-            color: #8b4513;
-            margin-bottom: 1rem;
-        }
-
-        .product-features ul {
-            list-style: none;
-            padding: 0;
-        }
-
-        .product-features li {
-            margin-bottom: 0.8rem;
-            padding-left: 1rem;
-            position: relative;
-        }
-
-        .product-features li:before {
-            content: "⚡";
-            position: absolute;
-            left: 0;
-        }
-
-        .product-status {
-            text-align: center;
-            margin: 2rem 0;
-        }
-
-        .status-badge {
-            display: inline-block;
-            padding: 0.5rem 1rem;
-            border-radius: 20px;
-            font-weight: bold;
-            font-size: 0.9rem;
-        }
-
-        .status-badge.coming-soon {
-            background: #fff3cd;
-            color: #856404;
-            border: 2px solid #ffeaa7;
-        }
-
-        .status-text {
-            margin-top: 0.5rem;
-            font-size: 0.9rem;
-            color: #666;
-        }
-
-        .product-links {
-            display: flex;
-            gap: 1rem;
-            justify-content: center;
-            flex-wrap: wrap;
-        }
-
-        .coming-soon-products {
-            text-align: center;
-            padding: 3rem;
-            background: #f8f6f3;
-            border-radius: 12px;
-            border: 2px dashed #d4af37;
-        }
-
-        .coming-soon-products h3 {
-            color: #8b4513;
-            margin-bottom: 1rem;
-        }
-
-        .product-screenshots {
-            margin-bottom: 2rem;
-        }
-
-        .product-screenshots h4 {
-            color: #8b4513;
-            margin-bottom: 1rem;
-        }
-
-        .screenshot-gallery {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 1.5rem;
-            margin-top: 1rem;
-        }
-
-        .screenshot-item {
-            text-align: center;
-        }
-
-        .screenshot-img {
-            width: 100%;
-            max-width: 250px;
-            height: auto;
-            border-radius: 20px;
-            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            border: 3px solid #d4af37;
-        }
-
-        .screenshot-img:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 12px 35px rgba(0, 0, 0, 0.2);
-        }
-
-        .screenshot-caption {
-            margin-top: 0.5rem;
-            font-size: 0.9rem;
-            color: #8b4513;
-            font-weight: 600;
-        }
-
-        @media (max-width: 768px) {
-            .screenshot-gallery {
-                grid-template-columns: 1fr;
-                gap: 1rem;
-            }
-            
-            .screenshot-img {
-                max-width: 200px;
-            }
-        }
-    </style>
     
     <!-- Performance Optimization Script -->
     <script src="lazy-loading.js"></script>
