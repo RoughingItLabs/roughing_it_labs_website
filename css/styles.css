@@ -2,12 +2,12 @@
 /* Import modular CSS files */
 
 /* Temporarily commenting out imports to test */
-/*
-@import url('base.css');
+
+/* @import url('base.css');
 @import url('layout.css');
 @import url('navigation.css');
-@import url('components.css');
-*/
+@import url('components.css'); */
+
 
 /* Additional styles that need to be organized will go here */
 /* This is a temporary placeholder until we complete the full modularization */
