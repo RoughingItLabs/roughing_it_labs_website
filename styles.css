@@ -2765,6 +2765,11 @@ h4 {
     transition: transform 0.3s ease;
 }
 
+.toggle-icon.rotated {
+    transform: rotate(180deg);
+    transition: transform 0.3s ease;
+  }
+
 .toggle-details[aria-expanded="true"] .toggle-icon {
     transform: rotate(180deg);
 }
@@ -3515,6 +3520,7 @@ img[loading="lazy"].loaded {
     box-shadow: var(--shadow-md);
     text-align: center;
     transition: all 0.3s ease;
+    text-decoration: none;
   }
   .features-overview .prospect-card:hover {
     transform: translateY(-6px);
