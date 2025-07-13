@@ -3500,9 +3500,11 @@ img[loading="lazy"].loaded {
   }
   
   /* 3) Prospect cards grid */
+  /* Prospector grid: always two columns, gap between cards */
+  /* On smaller screens, fall back to one column */
   .features-overview .prospect-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px,1fr));
+    grid-template-columns: repeat(2, 1fr);
     gap: 3rem;
     margin-top: 2rem;
   }
@@ -3510,6 +3512,9 @@ img[loading="lazy"].loaded {
     .features-overview .prospect-grid {
       grid-template-columns: 1fr;
     }
+    .prospect-grid {
+        grid-template-columns: 1fr;
+      }
   }
   
   /* 4) Card styling */
