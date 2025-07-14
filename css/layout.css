@@ -1,0 +1,251 @@
+/* RoughingIt Labs - Layout Styles */
+
+/* Container */
+.container {
+	max-width: 1200px;
+	margin: 0 auto;
+	padding: 0 2rem;
+}
+
+/* Section spacing */
+section {
+	padding: 5rem 0;
+}
+
+section + section {
+	margin-top: 3rem;
+}
+
+/* Grid systems */
+.grid-intro {
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	gap: 4rem;
+	align-items: center;
+	margin-bottom: 4rem;
+}
+
+.features-grid {
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+	gap: 2rem;
+	margin-top: 3rem;
+}
+
+.services-grid {
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+	gap: 2.5rem;
+	margin-top: 3rem;
+}
+
+.products-grid {
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+	gap: 3rem;
+	margin-top: 3rem;
+}
+
+.contact-grid {
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	gap: 4rem;
+	align-items: start;
+}
+
+.details-grid {
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+	gap: 2rem;
+	margin-top: 3rem;
+}
+
+.mission-grid {
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	gap: 4rem;
+	align-items: center;
+}
+
+.values-grid {
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+	gap: 2rem;
+	margin-top: 3rem;
+}
+
+.process-steps {
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+	gap: 2rem;
+	margin-top: 3rem;
+}
+
+.current-projects {
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+	gap: 2.5rem;
+	margin-top: 3rem;
+}
+
+.footer-top {
+	display: grid;
+	grid-template-columns: 1fr 2fr;
+	gap: 3rem;
+	margin-bottom: 2rem;
+}
+
+.footer-links-grid {
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+	gap: 2rem;
+}
+
+.footer-content {
+	display: grid;
+	grid-template-columns: 1fr 2fr;
+	gap: 3rem;
+	max-width: 1200px;
+	margin: 0 auto;
+	padding: 0 2rem;
+}
+
+/* Hero layout */
+.hero {
+	min-height: 85vh;
+	margin-top: calc(-1 * var(--header-height));
+	padding-top: calc(var(--header-height) + 8rem);
+}
+
+.hero-grid {
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	gap: 4rem;
+	align-items: center;
+}
+
+.hero-text {
+	flex: 1;
+}
+
+.hero-illustration {
+	flex: 1;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+/* Page hero */
+.page-hero {
+	background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+	color: var(--cream);
+	text-align: center;
+	padding: 4rem 0;
+	margin-top: calc(-1 * var(--header-height));
+	padding-top: calc(var(--header-height) + 4rem);
+}
+
+/* Responsive grid adjustments */
+@media (max-width: 992px) {
+	.hero-grid {
+		grid-template-columns: 1fr;
+		gap: 2rem;
+	}
+	
+	.hero-illustration {
+		order: -1;
+	}
+}
+
+@media (max-width: 768px) {
+	.contact-grid {
+		grid-template-columns: 1fr;
+		gap: 2rem;
+	}
+	
+	.mission-grid {
+		grid-template-columns: 1fr;
+		gap: 2rem;
+	}
+	
+	.footer-top {
+		grid-template-columns: 1fr;
+		gap: 2rem;
+	}
+	
+	.footer-content {
+		grid-template-columns: 1fr;
+		gap: 2rem;
+	}
+	
+	.grid-intro {
+		grid-template-columns: 1fr;
+		gap: 2rem;
+	}
+}
+
+@media (max-width: 600px) {
+	.container {
+		padding: 0 1rem;
+	}
+	
+	section {
+		padding: 3rem 0;
+	}
+	
+	.features-grid,
+	.services-grid,
+	.products-grid,
+	.details-grid,
+	.values-grid,
+	.process-steps,
+	.current-projects {
+		grid-template-columns: 1fr;
+		gap: 1.5rem;
+	}
+	
+	.detail-card,
+	.feature-card,
+	.service-card,
+	.product-card {
+		margin-bottom: 1.5rem;
+	}
+}
+
+@media (max-width: 900px) {
+	section {
+		padding: 4rem 0;
+	}
+	
+	.features-grid,
+	.services-grid,
+	.products-grid,
+	.details-grid,
+	.values-grid,
+	.process-steps,
+	.current-projects {
+		gap: 1.5rem;
+	}
+	
+	.footer-content {
+		padding: 0 1rem;
+	}
+}
+
+@media (min-width: 1200px) {
+	.features-grid {
+		grid-template-columns: repeat(3, 1fr);
+	}
+}
+
+@media (min-width: 600px) and (max-width: 1199px) {
+	.features-grid {
+		grid-template-columns: repeat(2, 1fr);
+	}
+}
+
+@media (max-width: 599px) {
+	.features-grid {
+		grid-template-columns: 1fr;
+	}
+} 

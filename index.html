@@ -8,116 +8,112 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Crimson+Text:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
+    <!-- Skip to main content link for keyboard users -->
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+    
     <header class="header">
-        <nav class="nav">
-            <div class="nav-brand">
-                <h1 class="logo">RoughingIt Labs</h1>
-                <p class="tagline">Pioneering AI Solutions Since the Digital Frontier</p>
-            </div>
-            <ul class="nav-links">
-                <li><a href="index.html">Home</a></li>
-                <li><a href="about.html">About</a></li>
-                <li><a href="services.html">Services</a></li>
-                <li><a href="products.html">Products</a></li>
-                <li><a href="contact.html">Contact</a></li>
-            </ul>
-        </nav>
+        <div include-html="pages/header.html"> </div>
     </header>
-
-    <main>
+    
+    <main id="main-content" role="main">
         <section class="hero">
-            <div class="hero-content">
+            <div class="container hero-grid">
+              <!-- Left column: all your existing text/ticker/buttons -->
+              <div class="hero-text">
                 <h2 class="hero-title">Striking Gold in the AI Frontier</h2>
-                <p class="hero-subtitle">From the Nevada Territory to Neural Networks</p>
+                
                 <p class="hero-description">
-                    We're modern-day prospectors, mining the rich veins of artificial intelligence to build mobile applications that would make even Mark Twain tip his hat. Established in the spirit of the 1860s Nevada boom towns, we bring that same pioneering determination to today's AI revolution.
+                  We’re modern-day prospectors, mining the rich veins of artificial intelligence to build mobile applications that would make even Mark Twain tip his hat. Established in the spirit of the 1860s Nevada boom towns, we bring that same pioneering determination to today’s AI revolution.
+                </p>
+                <p class="value-prop">
+                  AI-Powered Mobile Apps for the Digital Frontier
                 </p>
                 <div class="hero-buttons">
-                    <a href="services.html" class="btn btn-primary">Explore Our Services</a>
-                    <a href="contact.html" class="btn btn-secondary">Partner With Us</a>
+                  <a href="pages/services.html" class="btn btn-primary">Explore Our Services</a>
+                  <a href="pages/contact.html" class="btn btn-secondary">Partner With Us</a>
                 </div>
+              </div>
+          
+              <!-- Right column: drop in an SVG or image -->
+              <div class="hero-illustration">
+                <img src="images/horse_sillouette.png" alt="Illustration of galloping horse">
+              </div>
             </div>
-        </section>
+          </section>
+          
 
-        <section class="features">
-            <div class="container">
-                <h3 class="section-title">What We Prospect For</h3>
-                <div class="features-grid">
-                    <div class="feature">
-                        <div class="feature-icon">🤖</div>
-                        <h4>AI-Powered Mobile Apps</h4>
-                        <p>We build mobile applications that harness the power of modern LLMs like OpenAI's GPT, Grok, and other cutting-edge AI models.</p>
-                    </div>
-                    <div class="feature">
-                        <div class="feature-icon">⚡</div>
-                        <h4>AI Agents & Automation</h4>
-                        <p>Custom AI agents that work tirelessly, like the hardworking miners of the Comstock Lode, automating tasks and solving complex problems.</p>
-                    </div>
-                    <div class="feature">
-                        <div class="feature-icon">🏔️</div>
-                        <h4>Consulting & Development</h4>
-                        <p>Whether you're a startup or an established company, we'll help you stake your claim in the AI territory with expert consulting and development.</p>
-                    </div>
-                </div>
+        <section class="features-overview">
+            <div class="container grid-intro">
+              <div class="intro-text">
+                <h2>What We Prospect For</h2>
+                
+              </div>
+              <div class="intro-text">
+                <p> Like the adventurers Mark Twain wrote about in "Roughing It," we've set up camp where opportunity meets innovation. Based in Las Vegas, Nevada, we're perfectly positioned to help businesses across the frontier of AI technology. </p>
+
+                <p>Our team combines the grit and determination of 1860s prospectors with the expertise of modern AI engineers. We don't just follow trends—we blaze new trails in mobile app development and AI integration.</p>
+                <p>Whether you’re a startup or an established company, we’ll help you stake your claim in the AI territory with expert consulting and development.</p>
+              </div>
             </div>
-        </section>
-
-        <section class="about-preview">
-            <div class="container">
-                <div class="about-content">
-                    <h3>From Nevada, Serving the Digital Territory</h3>
-                    <p>
-                        Like the adventurers Mark Twain wrote about in "Roughing It," we've set up camp where opportunity meets innovation. Based in Las Vegas, Nevada, we're perfectly positioned to help businesses across the frontier of AI technology.
-                    </p>
-                    <p>
-                        Our team combines the grit and determination of 1860s prospectors with the expertise of modern AI engineers. We don't just follow trends—we blaze new trails in mobile app development and AI integration.
-                    </p>
-                    <a href="about.html" class="btn btn-outline">Learn Our Story</a>
-                </div>
+          
+            <div class="container prospect-grid">
+                <a href="pages/services.html#mobile-apps" class="prospect-card">
+                  <i class="fas fa-mobile-alt prospect-icon"></i>
+                  <h4>AI-Powered Mobile Apps</h4>
+                  <p>Harness modern LLMs like GPT to supercharge your mobile experience.</p>
+                </a>
+                <a href="pages/services.html#ai-agents" class="prospect-card">
+                  <i class="fas fa-robot prospect-icon"></i>
+                  <h4>AI Agents & Automation</h4>
+                  <p>Custom agents mining data and automating workflows 24/7.</p>
+                </a>
+                <a href="pages/services.html#consulting" class="prospect-card">
+                  <i class="fas fa-plug prospect-icon"></i>
+                  <h4>AI Integration</h4>
+                  <p>Blend new AI into your existing tools—no pick-axe required.</p>
+                </a>
+                <a href="pages/about.html" class="prospect-card">
+                  <i class="fas fa-users prospect-icon"></i>
+                  <h4>Get to Know the Team</h4>
+                  <p>1860s grit meets modern AI—see how we turned prospecting into a digital adventure.</p>
+                </a>
+              </div>
+          </section>
+          <section class="values">
+            <div class="ticker-container">
+            <div class="ticker-content">
+              <a href="pages/services.html#mobile-apps">AI-Powered Mobile Apps</a>
+              <a href="pages/services.html#ai-agents">AI Agents & Automation</a>
+              <a href="pages/services.html#consulting">Expert Consulting</a>
+              <a href="pages/services.html#prototyping">Prototyping & Development</a>
+              <a href="pages/services.html#integration">AI Integration in Existing Systems</a>
+              <a href="pages/services.html#other">Other Ideas YOU come up with</a>
             </div>
+          </div>
         </section>
-
         <section class="cta">
             <div class="container">
                 <h3>Ready to Strike Gold?</h3>
                 <p>Let's prospect for AI solutions that will transform your business. Drop us a line at the digital saloon.</p>
-                <a href="contact.html" class="btn btn-primary">Get In Touch</a>
+                <a href="pages/contact.html" class="btn btn-primary">Get In Touch</a>
             </div>
         </section>
     </main>
 
-    <footer class="footer">
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-brand">
-                    <h4>RoughingIt Labs</h4>
-                    <p>AI Development & Consulting</p>
-                </div>
-                <div class="footer-links">
-                    <div class="footer-section">
-                        <h5>Company</h5>
-                        <ul>
-                            <li><a href="about.html">About</a></li>
-                            <li><a href="services.html">Services</a></li>
-                            <li><a href="products.html">Products</a></li>
-                            <li><a href="contact.html">Contact</a></li>
-                        </ul>
-                    </div>
-                    <div class="footer-section">
-                        <h5>Territory</h5>
-                        <ul>
-                            <li>Las Vegas, Nevada</li>
-                            <li>hello@roughingitlabs.com</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-            <div class="footer-bottom">
-                <p>&copy; 2025 RoughingIt Labs. All rights reserved. | Pioneering AI since the digital gold rush.</p>
-            </div>
-        </div>
-    </footer>
+    <div include-html="pages/footer.html"> </div>
+
+    <!-- JavaScript Files -->
+     <script src="js/main.js"></script>
+     <script src="js/header-scroll.js"></script>
+     <script src="js/ticker-animation.js"></script>
+     <script>
+        document.addEventListener('DOMContentLoaded', () => {
+          initializePage('home');
+        });
+    </script>  
+
 </body>
 </html> 

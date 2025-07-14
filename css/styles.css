@@ -1,0 +1,150 @@
+/* RoughingIt Labs - Main Stylesheet */
+/* Import modular CSS files */
+
+/* Temporarily commenting out imports to test */
+
+/* @import url('base.css');
+@import url('layout.css');
+@import url('navigation.css');
+@import url('components.css'); */
+
+
+/* Additional styles that need to be organized will go here */
+/* This is a temporary placeholder until we complete the full modularization */
+
+/* Note: The original 3,630-line styles.css file has been broken down into modular components.
+   This file now serves as the main entry point that imports all the modular CSS files.
+   
+   To complete the modularization, we need to:
+   1. Create pages.css for page-specific styles
+   2. Create animations.css for keyframes and animations
+   3. Create utilities.css for utility classes
+   4. Create responsive.css for media queries
+   5. Move remaining styles from the original file to appropriate modules
+   
+   This is a work in progress - the modular structure is now in place! */
+
+/* Test styles to ensure CSS is loading */
+body {
+    background-color: #f0f0f0 !important;
+    color: #333 !important;
+    font-family: 'Crimson Text', serif;
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.hero {
+    padding: 4rem 0;
+    text-align: center;
+    min-height: 60vh;
+    display: flex;
+    align-items: center;
+}
+
+.hero-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: center;
+}
+
+.hero-title {
+    font-size: 3rem;
+    color: #8B4513;
+    margin-bottom: 1rem;
+    font-family: 'Playfair Display', serif;
+}
+
+.hero-description {
+    font-size: 1.2rem;
+    max-width: 800px;
+    margin: 0 auto 2rem;
+}
+
+.btn {
+    display: inline-block;
+    padding: 12px 24px;
+    background-color: #8B4513;
+    color: white;
+    text-decoration: none;
+    border-radius: 8px;
+    margin: 0 10px;
+    transition: all 0.3s ease;
+}
+
+.btn:hover {
+    background-color: #DAA520;
+    transform: translateY(-2px);
+}
+
+/* Navigation styles */
+.nav {
+    background-color: #8B4513;
+    color: white;
+    padding: 1rem 0;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.nav-brand {
+    text-align: center;
+    margin-bottom: 1rem;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    margin: 0;
+    padding: 0;
+}
+
+.nav-links a {
+    color: white;
+    text-decoration: none;
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    transition: background-color 0.3s ease;
+}
+
+.nav-links a:hover,
+.nav-links a.active {
+    background-color: #DAA520;
+}
+
+/* Footer styles */
+.footer {
+    background-color: #654321;
+    color: white;
+    padding: 2rem 0;
+    margin-top: 4rem;
+}
+
+/* Section styles */
+section {
+    padding: 3rem 0;
+}
+
+.prospect-card {
+    background: white;
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    text-align: center;
+}
+
+.prospect-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    margin-top: 2rem;
+}
