@@ -1,4 +1,4 @@
-# RoughingIt Labs Website
+# RoughingIt Labs Website 
 
 A Nevada 1860s frontier-themed website for RoughingIt Labs, an AI development and consulting company inspired by Mark Twain's "Roughing It."
 
