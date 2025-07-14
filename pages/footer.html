@@ -58,13 +58,16 @@
       </div>
   
       <div class="footer-bottom">
-        <p>Stay in the loop:
-          <form class="footer-newsletter">
-            <input type="email" placeholder="Your email address" required>
-            <button type="submit" class="btn btn-primary">Subscribe</button>
+        <div class="footer-newsletter-section">
+          <p>Stay in the loop:</p>
+          <form class="footer-newsletter" aria-label="Newsletter subscription">
+            <div class="newsletter-input-group">
+              <input type="email" placeholder="Your email address" required aria-label="Email address">
+              <button type="submit" class="btn btn-primary">Subscribe</button>
+            </div>
           </form>
-        </p>
-        <p>&copy; 2025 RoughingIt Labs. All rights reserved.</p>
+        </div>
+        <p class="footer-copyright">&copy; 2025 RoughingIt Labs. All rights reserved.</p>
       </div>
     </div>
   </footer>

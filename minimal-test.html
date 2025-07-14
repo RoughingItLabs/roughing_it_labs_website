@@ -3,37 +3,54 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Minimal Test</title>
-    <style>
-        body {
-            background-color: #f0f0f0;
-            color: #333;
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 20px;
-        }
-        h1 {
-            color: #8B4513;
-            font-size: 2rem;
-        }
-        .test-box {
-            background: white;
-            padding: 20px;
-            border-radius: 8px;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-            margin: 20px 0;
-        }
-    </style>
+    <title>Mobile Navigation Test - RoughingIt Labs</title>
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/navigation.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Crimson+Text:wght@400;600&display=swap" rel="stylesheet">
 </head>
 <body>
-    <h1>Minimal Test Page</h1>
-    <div class="test-box">
-        <p>If you can see this text, the browser is working correctly.</p>
-        <p>This page has no JavaScript and only basic inline CSS.</p>
-    </div>
-    <div class="test-box">
-        <h2>CSS Test</h2>
-        <p>This should have a white background and rounded corners.</p>
-    </div>
+    <header class="header">
+        <div include-html="pages/header.html"></div>
+    </header>
+    
+    <main style="padding: 2rem; min-height: 100vh;">
+        <h1>Mobile Navigation Test</h1>
+        <p>This page tests the mobile-friendly header with hamburger menu functionality.</p>
+        <p>Try resizing your browser window to see the hamburger menu appear on mobile devices.</p>
+        
+        <div style="margin: 2rem 0;">
+            <h2>Test Instructions:</h2>
+            <ul>
+                <li>Resize your browser window to mobile width (768px or less)</li>
+                <li>Click the hamburger menu button</li>
+                <li>Verify the menu slides in from the right</li>
+                <li>Test clicking on menu items to close the menu</li>
+                <li>Test pressing the Escape key to close the menu</li>
+                <li>Test clicking outside the menu to close it</li>
+            </ul>
+        </div>
+        
+        <div style="margin: 2rem 0;">
+            <h2>Mobile Footer Test:</h2>
+            <p>Scroll down to see the mobile-friendly footer with improved layout.</p>
+        </div>
+        
+        <!-- Add some content to make the page scrollable -->
+        <div style="height: 100vh; background: linear-gradient(135deg, #8B4513, #D2691E); color: white; display: flex; align-items: center; justify-content: center; margin: 2rem 0;">
+            <h2>Scroll down to see the footer</h2>
+        </div>
+    </main>
+    
+    <div include-html="pages/footer.html"></div>
+    
+    <script src="js/main.js"></script>
+    <script src="js/header-scroll.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            initializePage('home');
+        });
+    </script>
 </body>
 </html> 
