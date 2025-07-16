@@ -29,9 +29,9 @@ document.addEventListener('DOMContentLoaded', function() {
 // Performance optimization: Preload critical images
 function preloadCriticalImages() {
     const criticalImages = [
-        'images/logo.jpg',
-        'images/dinerdroid-header.png',
-        'images/automind-header-icon.png'
+        '../images/logo.jpg',
+        '../images/dinerdroid-header.png',
+        '../images/automind-header-icon.png'
     ];
     
     criticalImages.forEach(src => {
