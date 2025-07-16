@@ -135,6 +135,14 @@ section + section {
 	align-items: center;
 }
 
+.hidden {
+	position: absolute;
+	left: -10000px;
+	width: 1px;
+	height: 1px;
+	overflow: hidden;
+  }
+
 /* Page hero */
 .page-hero {
 	background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));

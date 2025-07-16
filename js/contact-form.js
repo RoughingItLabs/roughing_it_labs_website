@@ -1,194 +1,184 @@
-// Form validation and submission handling
-
-document.addEventListener('DOMContentLoaded', function() {
-    const form = document.getElementById('contact-form');
-    const submitBtn = document.getElementById('submit-btn');
-    const btnText = submitBtn.querySelector('.btn-text');
-    const btnLoading = submitBtn.querySelector('.btn-loading');
-    const formStatus = document.getElementById('form-status');
-    
-    // Field validation rules
-    const validators = {
-        name: {
-            required: true,
-            minLength: 2,
-            message: 'Please enter your full name (at least 2 characters)'
-        },
-        email: {
-            required: true,
-            pattern: /^[^\s@]+@[^\s@]+\.[^\s@]+$/,
-            message: 'Please enter a valid email address'
-        },
-        message: {
-            required: true,
-            minLength: 10,
-            message: 'Please provide more details about your project (at least 10 characters)'
-        }
-    };
-
-    // Real-time validation
-    function validateField(field) {
-        const fieldName = field.name;
-        const errorElement = document.getElementById(fieldName + '-error');
-        const validator = validators[fieldName];
-        
-        if (!validator) return true;
-        
-        let isValid = true;
-        let errorMessage = '';
-        
-        // Check required
-        if (validator.required && !field.value.trim()) {
-            isValid = false;
-            errorMessage = validator.message;
-        }
-        // Check min length
-        else if (validator.minLength && field.value.trim().length < validator.minLength) {
-            isValid = false;
-            errorMessage = validator.message;
-        }
-        // Check pattern
-        else if (validator.pattern && !validator.pattern.test(field.value)) {
-            isValid = false;
-            errorMessage = validator.message;
-        }
-        
-        // Update field styling and error message
-        if (!isValid) {
-            field.classList.add('error');
-            field.setAttribute('aria-invalid', 'true');
-            errorElement.textContent = errorMessage;
-            errorElement.style.display = 'block';
-        } else {
-            field.classList.remove('error');
-            field.setAttribute('aria-invalid', 'false');
-            errorElement.textContent = '';
-            errorElement.style.display = 'none';
-        }
-        
-        return isValid;
+/* contact-form.js
+ * Netlify form submission with client-side validation + redirect.
+ */
+document.addEventListener('DOMContentLoaded', () => {
+    const form = document.getElementById('contact-form'); // real <form>
+    if (!form) {
+      console.error('[contact-form] Form element #contact-form not found.');
+      return;
     }
-
-    // Add validation listeners
+  
+    const submitBtn  = document.getElementById('submit-btn');
+    const btnText    = submitBtn?.querySelector('.btn-text');
+    const btnLoading = submitBtn?.querySelector('.btn-loading');
+    const formStatus = document.getElementById('form-status');
+  
+    // --- Validation rules ---
+    const validators = {
+      name: {
+        required: true,
+        minLength: 2,
+        message: 'Please enter your full name (at least 2 characters).'
+      },
+      email: {
+        required: true,
+        pattern: /^[^\s@]+@[^\s@]+\.[^\s@]+$/,
+        message: 'Please enter a valid email address.'
+      },
+      message: {
+        required: true,
+        minLength: 10,
+        message: 'Please provide more details (at least 10 characters).'
+      }
+    };
+  
+    // --- Helpers ---
+    function validateField(field) {
+      const fieldName    = field.name;
+      const validator    = validators[fieldName];
+      const errorElement = document.getElementById(fieldName + '-error');
+      if (!validator) return true; // no rules => valid
+  
+      let isValid      = true;
+      let errorMessage = '';
+  
+      const value = field.value.trim();
+  
+      if (validator.required && !value) {
+        isValid = false; errorMessage = validator.message;
+      } else if (validator.minLength && value.length < validator.minLength) {
+        isValid = false; errorMessage = validator.message;
+      } else if (validator.pattern && !validator.pattern.test(value)) {
+        isValid = false; errorMessage = validator.message;
+      }
+  
+      // Update UI
+      if (!isValid) {
+        field.classList.add('error');
+        field.setAttribute('aria-invalid', 'true');
+        if (errorElement) {
+          errorElement.textContent = errorMessage;
+          errorElement.style.display = 'block';
+        }
+      } else {
+        field.classList.remove('error');
+        field.setAttribute('aria-invalid', 'false');
+        if (errorElement) {
+          errorElement.textContent = '';
+          errorElement.style.display = 'none';
+        }
+      }
+  
+      return isValid;
+    }
+  
+    function showFormStatus(message, type) {
+      if (!formStatus) return;
+      formStatus.textContent = message;
+      formStatus.className   = `form-status form-status-${type}`;
+      formStatus.style.display = 'block';
+  
+      if (type === 'success') {
+        setTimeout(() => { formStatus.style.display = 'none'; }, 5000);
+      }
+    }
+  
+    function shakeForm() {
+      form.classList.add('shake');
+      setTimeout(() => form.classList.remove('shake'), 500);
+    }
+  
+    function setLoadingState(loading) {
+      if (!submitBtn) return;
+      submitBtn.disabled = loading;
+      if (btnText)    btnText.style.display    = loading ? 'none' : 'inline';
+      if (btnLoading) btnLoading.style.display = loading ? 'inline-flex' : 'none';
+      submitBtn.classList.toggle('loading', loading);
+    }
+  
+    // Progressive enhancement: validation events
     const fields = form.querySelectorAll('input, select, textarea');
     fields.forEach(field => {
-        // Validate on blur
-        field.addEventListener('blur', () => validateField(field));
-        
-        // Clear error on input
-        field.addEventListener('input', () => {
-            if (field.classList.contains('error')) {
-                validateField(field);
-            }
-        });
+      field.addEventListener('blur',  () => validateField(field));
+      field.addEventListener('input', () => {
+        if (field.classList.contains('error')) validateField(field);
+      });
     });
-
-    // Form submission
-    form.addEventListener('submit', async function(e) {
-        e.preventDefault();
-        
-        // Validate all fields
-        let isValid = true;
-        fields.forEach(field => {
-            if (!validateField(field)) {
-                isValid = false;
-            }
-        });
-        
-        if (!isValid) {
-            showFormStatus('Please correct the errors above before submitting.', 'error');
-            shakeForm();
-            return;
-        }
-        
-        // Show loading state
-        setLoadingState(true);
-        showFormStatus('Sending your message...', 'info');
-        
-        try {
-            // Simulate form submission (replace with actual submission logic)
-            await new Promise(resolve => setTimeout(resolve, 2000));
-            
-            // Success
-            showFormStatus('Message sent successfully! We\'ll get back to you within 1-2 business days.', 'success');
-            form.reset();
-            fields.forEach(field => {
-                field.classList.remove('error');
-                const errorElement = document.getElementById(field.name + '-error');
-                if (errorElement) {
-                    errorElement.textContent = '';
-                    errorElement.style.display = 'none';
-                }
-            });
-            
-        } catch (error) {
-            // Error
-            showFormStatus('Sorry, there was an error sending your message. Please try again or email us directly.', 'error');
-            shakeForm();
-        } finally {
-            setLoadingState(false);
-        }
-    });
-
-    function setLoadingState(loading) {
-        if (loading) {
-            submitBtn.disabled = true;
-            btnText.style.display = 'none';
-            btnLoading.style.display = 'inline-flex';
-            submitBtn.classList.add('loading');
-        } else {
-            submitBtn.disabled = false;
-            btnText.style.display = 'inline';
-            btnLoading.style.display = 'none';
-            submitBtn.classList.remove('loading');
-        }
+  
+    // --- Encode form data for Netlify ---
+    function encodeFormData(formElement) {
+      const fd = new FormData(formElement);
+  
+      // Netlify form-name fallback: sometimes people forget the hidden field;
+      // we enforce here just in case.
+      if (!fd.has('form-name')) {
+        fd.append('form-name', formElement.getAttribute('name') || 'contact');
+      }
+  
+      // URL-encode
+      return new URLSearchParams(fd).toString();
     }
-
-    function showFormStatus(message, type) {
-        formStatus.textContent = message;
-        formStatus.className = `form-status form-status-${type}`;
-        formStatus.style.display = 'block';
-        
-        // Auto-hide success messages after 5 seconds
-        if (type === 'success') {
-            setTimeout(() => {
-                formStatus.style.display = 'none';
-            }, 5000);
-        }
-    }
-
-    function shakeForm() {
-        form.classList.add('shake');
+  
+    // --- Submit handler ---
+    form.addEventListener('submit', (e) => {
+      e.preventDefault(); // always intercept (AJAX mode)
+  
+      // Validate all fields
+      let valid = true;
+      fields.forEach(field => {
+        if (!validateField(field)) valid = false;
+      });
+      if (!valid) {
+        showFormStatus('Please correct the errors above before submitting.', 'error');
+        shakeForm();
+        return;
+      }
+  
+      // Loading UI
+      setLoadingState(true);
+      showFormStatus('Sending your message...', 'info');
+  
+      const encoded = encodeFormData(form);
+  
+      fetch('/', {
+        method: 'POST',
+        headers: {'Content-Type': 'application/x-www-form-urlencoded'},
+        body: encoded
+      })
+      .then(response => {
+        // Netlify returns 200 for background form capture; we don't need to parse body
+        if (!response.ok) throw new Error(`HTTP ${response.status}`);
+        showFormStatus('Message sent! Redirecting...', 'success');
+  
+        // Redirect after short delay so user sees message
         setTimeout(() => {
-            form.classList.remove('shake');
-        }, 500);
-    }
-
-    // Micro-interactions for buttons
+          window.location.href = form.action; // uses your action="/pages/thank-you.html"
+        }, 700);
+      })
+      .catch(err => {
+        console.error('[contact-form] submission error:', err);
+        showFormStatus('Sorry, there was an error sending your message. Please try again or email us directly.', 'error');
+        shakeForm();
+      })
+      .finally(() => {
+        setLoadingState(false);
+      });
+    });
+  
+    // Micro-interactions (unchanged)
     const buttons = document.querySelectorAll('.btn');
     buttons.forEach(button => {
-        button.addEventListener('mousedown', function() {
-            this.style.transform = 'scale(0.98)';
-        });
-        
-        button.addEventListener('mouseup', function() {
-            this.style.transform = 'scale(1)';
-        });
-        
-        button.addEventListener('mouseleave', function() {
-            this.style.transform = 'scale(1)';
-        });
+      button.addEventListener('mousedown',  () => { button.style.transform = 'scale(0.98)'; });
+      button.addEventListener('mouseup',    () => { button.style.transform = 'scale(1)'; });
+      button.addEventListener('mouseleave', () => { button.style.transform = 'scale(1)'; });
     });
-
-    // Navigation feedback
+  
     const navLinks = document.querySelectorAll('.nav-links a');
     navLinks.forEach(link => {
-        link.addEventListener('click', function() {
-            // Add a subtle highlight effect
-            this.style.transform = 'scale(1.05)';
-            setTimeout(() => {
-                this.style.transform = 'scale(1)';
-            }, 150);
-        });
+      link.addEventListener('click', function() {
+        this.style.transform = 'scale(1.05)';
+        setTimeout(() => { this.style.transform = 'scale(1)'; }, 150);
+      });
     });
-}); 
+  });
+  
