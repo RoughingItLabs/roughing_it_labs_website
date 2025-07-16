@@ -7,37 +7,37 @@
         <priority>1.0</priority>
     </url>
     <url>
-        <loc>https://roughingitlabs.com/about.html</loc>
+        <loc>https://roughingitlabs.com/pages/about.html</loc>
         <lastmod>2024-07-11</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
     </url>
     <url>
-        <loc>https://roughingitlabs.com/services.html</loc>
+        <loc>https://roughingitlabs.com/pages/services.html</loc>
         <lastmod>2024-07-11</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.9</priority>
     </url>
     <url>
-        <loc>https://roughingitlabs.com/products.html</loc>
+        <loc>https://roughingitlabs.com/pages/products.html</loc>
         <lastmod>2024-07-11</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
     </url>
     <url>
-        <loc>https://roughingitlabs.com/contact.html</loc>
+        <loc>https://roughingitlabs.com/pages/contact.html</loc>
         <lastmod>2024-07-11</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.7</priority>
     </url>
     <url>
-        <loc>https://roughingitlabs.com/thank-you.html</loc>
+        <loc>https://roughingitlabs.com/pages/thank-you.html</loc>
         <lastmod>2024-07-11</lastmod>
         <changefreq>yearly</changefreq>
         <priority>0.3</priority>
     </url>
     <url>
-        <loc>https://roughingitlabs.com/dinerdroid-privacy.html</loc>
+        <loc>https://roughingitlabs.com/pages/dinerdroid-privacy.html</loc>
         <lastmod>2024-07-11</lastmod>
         <changefreq>yearly</changefreq>
         <priority>0.4</priority>
