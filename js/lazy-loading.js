@@ -25,27 +25,3 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 });
-
-// Performance optimization: Preload critical images
-function preloadCriticalImages() {
-    const criticalImages = [
-        '../images/logo.jpg',
-        '../images/dinerdroid-header.png',
-        '../images/automind-header-icon.png'
-    ];
-    
-    criticalImages.forEach(src => {
-        const link = document.createElement('link');
-        link.rel = 'preload';
-        link.as = 'image';
-        link.href = src;
-        document.head.appendChild(link);
-    });
-}
-
-// Call preload function when page loads
-if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', preloadCriticalImages);
-} else {
-    preloadCriticalImages();
-} 
