@@ -116,7 +116,68 @@ async function includeHTML() {
     setTimeout(() => {
       console.log('Attempting to initialize hamburger menu...');
       initializeHamburgerMenu();
+      initializeAnnouncementBanner();
     }, 100);
+  }
+
+  // Announcement Banner functionality
+  function initializeAnnouncementBanner() {
+    const banner = document.querySelector('.announcement-banner');
+    const closeBtn = document.querySelector('.announcement-close');
+    const dinerdroidLink = document.querySelector('[data-dinerdroid-link]');
+    
+    // Set correct DinerDroid link path based on current page location
+    if (dinerdroidLink) {
+      const currentPath = window.location.pathname;
+      let dinerdroidPath;
+      
+      if (currentPath === '/' || currentPath === '/index.html') {
+        dinerdroidPath = 'dinerdroid/index.html';
+      } else if (currentPath.includes('/pages/')) {
+        dinerdroidPath = '../dinerdroid/index.html';
+      } else if (currentPath.includes('/dinerdroid/')) {
+        dinerdroidPath = 'index.html';
+      } else {
+        dinerdroidPath = 'dinerdroid/index.html'; // fallback
+      }
+      
+      dinerdroidLink.href = dinerdroidPath;
+    }
+    
+    if (closeBtn && banner) {
+      closeBtn.addEventListener('click', function() {
+        banner.style.animation = 'slideUp 0.3s ease-out forwards';
+        setTimeout(() => {
+          banner.style.display = 'none';
+          // Store in sessionStorage so it stays closed for the session
+          sessionStorage.setItem('announcementClosed', 'true');
+        }, 300);
+      });
+    }
+    
+    // Check if announcement was already closed this session
+    if (sessionStorage.getItem('announcementClosed') === 'true' && banner) {
+      banner.style.display = 'none';
+    }
+
+    // Add slideUp animation if not already present
+    if (!document.querySelector('#slideUpAnimation')) {
+      const style = document.createElement('style');
+      style.id = 'slideUpAnimation';
+      style.textContent = `
+        @keyframes slideUp {
+          from {
+            transform: translateY(0);
+            opacity: 1;
+          }
+          to {
+            transform: translateY(-100%);
+            opacity: 0;
+          }
+        }
+      `;
+      document.head.appendChild(style);
+    }
   }
   
 

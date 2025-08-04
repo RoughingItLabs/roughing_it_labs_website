@@ -3210,6 +3210,102 @@ img[loading="lazy"].loaded {
     box-shadow: 0 4px 12px rgba(21, 87, 36, 0.3);
 }
 
+/* Announcement Banner */
+.announcement-banner {
+    background: linear-gradient(135deg, #FF6B35, #FF8E53);
+    color: white;
+    padding: 12px 20px;
+    text-align: center;
+    position: relative;
+    font-size: 0.95rem;
+    font-weight: 500;
+    box-shadow: 0 2px 10px rgba(255, 107, 53, 0.3);
+    animation: slideDown 0.5s ease-out;
+    z-index: 1000;
+}
+
+.announcement-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    flex-wrap: wrap;
+}
+
+.announcement-link {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    padding: 4px 12px;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 20px;
+    transition: all 0.3s ease;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.announcement-link:hover {
+    background: rgba(255, 255, 255, 0.3);
+    transform: translateY(-1px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.announcement-close {
+    position: absolute;
+    right: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    color: white;
+    font-size: 20px;
+    cursor: pointer;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+}
+
+.announcement-close:hover {
+    background: rgba(255, 255, 255, 0.2);
+}
+
+.announcement-banner.hidden {
+    display: none;
+}
+
+@keyframes slideDown {
+    from {
+        transform: translateY(-100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+/* Mobile responsiveness */
+@media (max-width: 768px) {
+    .announcement-banner {
+        padding: 10px 15px;
+        font-size: 0.9rem;
+    }
+    
+    .announcement-content {
+        flex-direction: column;
+        gap: 6px;
+    }
+    
+    .announcement-close {
+        right: 15px;
+    }
+}
+
 .status-text {
     margin-top: 0.5rem;
     font-size: 0.9rem;
