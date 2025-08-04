@@ -100,13 +100,14 @@ section + section {
     transition: background 0.3s ease, box-shadow 0.3s ease;
     margin: 0; /* Remove any default margins */
     padding: 0; /* Remove any default padding */
+    border-top: none; /* Remove any border */
 }
   
   /* 2) After the user scrolls down 1px, JS adds .scrolled */
-  .header.scrolled {
+.header.scrolled {
     background: linear-gradient(135deg, var(--primary-color) 0%, var(--dark-brown) 100%);
     box-shadow: var(--shadow-lg), 0 1px 3px rgba(0,0,0,0.1);
-  }
+}
 
 .nav {
     display: flex;
@@ -115,7 +116,9 @@ section + section {
     max-width: 1200px;
     margin: 0 auto;
     padding: 0 2rem;
-    background: transparent; /* Ensure no background on nav itself */
+    background: linear-gradient(135deg, var(--primary-color) 0%, var(--dark-brown) 100%);
+    border-top: none; /* Remove any border */
+    border-bottom: none; /* Remove any border */
 }
 
 .nav-brand {
@@ -691,7 +694,7 @@ section + section {
     /* Navigation mobile styles */
     .nav {
         padding: 1rem 2rem;
-        background: transparent; /* Ensure no background on mobile */
+        background: linear-gradient(135deg, var(--primary-color) 0%, var(--dark-brown) 100%);
     }
     
     .nav-brand {
@@ -759,6 +762,7 @@ section + section {
         margin: 0;
         padding: 0;
         height: auto;
+        background: linear-gradient(135deg, var(--primary-color) 0%, var(--dark-brown) 100%);
     }
     
     /* Footer mobile improvements */
@@ -3297,6 +3301,7 @@ img[loading="lazy"].loaded {
     animation: slideDown 0.5s ease-out;
     z-index: 1000;
     margin-bottom: 0; /* Ensure no gap */
+    border-bottom: none; /* Remove any border */
 }
 
 /* Add spacing when announcement banner is present */
