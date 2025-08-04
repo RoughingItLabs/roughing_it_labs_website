@@ -53,9 +53,21 @@
     transition: background 0.3s ease;
 }
 
-.nav-links a:hover,
-.nav-links a.active {
+.nav-links a:hover {
     background: rgba(255, 255, 255, 0.2);
+}
+
+/* Override main site styles for DinerDroid navigation */
+.dinerdroid-header .nav-links a.active {
+    background: rgba(255, 255, 255, 0.9) !important;
+    color: var(--dinerdroid-primary) !important;
+    font-weight: 600 !important;
+}
+
+.nav-links a.active {
+    background: rgba(255, 255, 255, 0.9);
+    color: var(--dinerdroid-primary);
+    font-weight: 600;
 }
 
 /* Hero Styles */

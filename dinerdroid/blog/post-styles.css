@@ -114,6 +114,12 @@
     color: var(--dinerdroid-text);
 }
 
+/* Remove bullets from comparison lists that have ✓ and ✗ symbols */
+.comparison-lists ul {
+    list-style: none;
+    padding-left: 1rem;
+}
+
 /* Highlight Boxes */
 .highlight-box {
     background: white;
