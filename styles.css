@@ -3292,17 +3292,41 @@ img[loading="lazy"].loaded {
 /* Mobile responsiveness */
 @media (max-width: 768px) {
     .announcement-banner {
-        padding: 10px 15px;
-        font-size: 0.9rem;
+        padding: 8px 15px;
+        font-size: 0.85rem;
+        line-height: 1.4;
     }
     
     .announcement-content {
         flex-direction: column;
-        gap: 6px;
+        gap: 4px;
     }
     
     .announcement-close {
         right: 15px;
+        width: 24px;
+        height: 24px;
+        font-size: 16px;
+    }
+    
+    /* Ensure proper spacing after banner on mobile */
+    body {
+        margin-top: 0;
+    }
+    
+    .nav {
+        margin-top: 0;
+    }
+    
+    /* Add breathing room for main content after the banner */
+    .hero, .main-content, .about-main, .services-hero, .products-hero, .contact-hero, 
+    .page-hero, .content-section, .main-hero, .section {
+        padding-top: 2rem;
+    }
+    
+    /* Specific fixes for common page layouts */
+    .container:first-of-type {
+        margin-top: 1rem;
     }
 }
 
