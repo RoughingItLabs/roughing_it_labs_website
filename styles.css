@@ -95,10 +95,12 @@ section + section {
     box-shadow: none;
     position: sticky;
     top: 0;
-    height: var(--header-height);
+    height: auto; /* Allow natural height */
     z-index: 1000;
     transition: background 0.3s ease, box-shadow 0.3s ease;
-  }
+    margin: 0; /* Remove any default margins */
+    padding: 0; /* Remove any default padding */
+}
   
   /* 2) After the user scrolls down 1px, JS adds .scrolled */
   .header.scrolled {
@@ -113,6 +115,15 @@ section + section {
     max-width: 1200px;
     margin: 0 auto;
     padding: 0 2rem;
+    background: transparent; /* Ensure no background on nav itself */
+}
+
+.nav-brand {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    padding: 1rem 0; /* Add consistent padding */
 }
 
 .nav-brand .logo {
@@ -123,6 +134,7 @@ section + section {
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
     margin-bottom: 0.2rem;
     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    line-height: 1; /* Ensure proper line height */
 }
 
 .nav-brand:hover .logo {
@@ -135,6 +147,8 @@ section + section {
     color: var(--cream);
     font-style: italic;
     opacity: 0.9;
+    margin: 0; /* Remove any default margins */
+    line-height: 1.2; /* Ensure proper line height */
 }
 
 .nav-links {
@@ -677,14 +691,22 @@ section + section {
     /* Navigation mobile styles */
     .nav {
         padding: 1rem 2rem;
+        background: transparent; /* Ensure no background on mobile */
+    }
+    
+    .nav-brand {
+        padding: 0.5rem 0; /* Reduce padding on mobile */
     }
     
     .nav-brand .logo {
         font-size: 1.8rem;
+        line-height: 1; /* Ensure proper line height on mobile */
     }
     
     .nav-brand .tagline {
         font-size: 0.8rem;
+        line-height: 1.2; /* Ensure proper line height on mobile */
+        margin: 0; /* Remove any margins */
     }
     
     /* Show hamburger menu on mobile */
@@ -724,6 +746,19 @@ section + section {
     .nav-links a:hover {
         background-color: rgba(218, 165, 32, 0.3);
         transform: none;
+    }
+    
+    /* Ensure announcement banner has no gaps on mobile */
+    .announcement-banner {
+        margin-bottom: 0;
+        padding: 10px 15px; /* Slightly reduce padding on mobile */
+    }
+    
+    /* Ensure header has no gaps on mobile */
+    .header {
+        margin: 0;
+        padding: 0;
+        height: auto;
     }
     
     /* Footer mobile improvements */
@@ -1421,7 +1456,7 @@ section + section {
 .contact-info {
   display: flex;
   flex-direction: column;
-  /* make sure the “Send” button and final info sit at the bottom */
+  /* make sure the "Send" button and final info sit at the bottom */
   justify-content: space-between;
   padding: 2rem;
   background: var(--off-white);
@@ -1868,30 +1903,66 @@ section + section {
 }
 
 @media (max-width: 480px) {
+    .container {
+        padding: 0 1rem;
+    }
+    
+    .page-hero .container {
+        padding: 0 1.5rem;
+    }
+    
     .hero-title {
         font-size: 2rem;
     }
     
     .section-title {
-        font-size: 2rem;
+        font-size: 1.8rem;
+    }
+    
+    .page-title {
+        font-size: 1.8rem;
+        line-height: 1.1;
+        margin-bottom: 0.5rem;
+    }
+    
+    .page-subtitle {
+        font-size: 1.1rem;
     }
     
     .nav-links {
-        gap: 0.2rem;
+        padding: 0 1rem; /* Add padding for very small screens */
     }
     
     .nav-links a {
-        font-size: 0.9rem;
-        padding: 0.3rem 0.5rem;
+        font-size: 1.3rem; /* Slightly smaller on very small screens */
+        padding: 0.8rem 1.5rem;
+    }
+    
+    /* Ensure header elements are properly sized on very small screens */
+    .nav {
+        padding: 0.8rem 1rem; /* Reduce padding on very small screens */
+    }
+    
+    .nav-brand .logo {
+        font-size: 1.6rem; /* Slightly smaller on very small screens */
+    }
+    
+    .nav-brand .tagline {
+        font-size: 0.7rem; /* Slightly smaller on very small screens */
+    }
+    
+    /* Ensure announcement banner fits well on very small screens */
+    .announcement-banner {
+        padding: 8px 12px; /* Reduce padding on very small screens */
+        font-size: 0.9rem; /* Slightly smaller text */
     }
     
     .contact-form,
     .contact-info {
-        padding: 2rem;
+        padding: 1.5rem;
     }
     
     .process-steps {
-        grid-template-columns: 1fr;
         gap: 1rem;
     }
     
@@ -1900,9 +1971,9 @@ section + section {
     }
     
     .step-number {
-        font-size: 1.5rem;
-        width: 3rem;
-        height: 3rem;
+        width: 2.5rem;
+        height: 2.5rem;
+        font-size: 1rem;
     }
     
     .process-step h4 {
@@ -1910,27 +1981,27 @@ section + section {
     }
     
     .product-card {
-        padding: 1rem;
+        padding: 1.5rem;
     }
     
     .product-info h3 {
-        font-size: 1.5rem;
+        font-size: 1.3rem;
     }
     
     .product-icon {
-        width: 50px;
+        width: 3rem;
+        height: 3rem;
     }
     
     .product-header {
-        flex-direction: column;
-        text-align: center;
+        gap: 1rem;
     }
     
     .product-icon {
-        margin-right: 0;
-        margin-bottom: 1rem;
+        width: 3.5rem;
+        height: 3.5rem;
     }
-} 
+}
 
 /* Enhanced image hover effects */
 .product-icon img,
@@ -2901,6 +2972,9 @@ h4 {
     }
     h2, .page-title {
         font-size: 2rem;
+        line-height: 1.2;
+        word-wrap: break-word;
+        hyphens: auto;
     }
     h3 {
         font-size: 1.3rem;
@@ -3222,6 +3296,31 @@ img[loading="lazy"].loaded {
     box-shadow: 0 2px 10px rgba(255, 107, 53, 0.3);
     animation: slideDown 0.5s ease-out;
     z-index: 1000;
+    margin-bottom: 0; /* Ensure no gap */
+}
+
+/* Add spacing when announcement banner is present */
+.announcement-banner:not(.hidden) + .hero,
+.announcement-banner:not(.hidden) + .page-hero,
+.announcement-banner:not(.hidden) ~ .hero,
+.announcement-banner:not(.hidden) ~ .page-hero {
+    padding-top: calc(var(--header-height) + 6rem);
+}
+
+/* Ensure page hero content stacks properly below mobile navigation */
+@media (max-width: 768px) {
+    .page-hero {
+        margin-top: 0;
+        padding-top: calc(var(--header-height) + 2rem);
+        position: relative;
+        z-index: 1;
+        transition: margin-top 0.3s ease;
+    }
+    
+    /* When hamburger menu is active, ensure content doesn't overlap */
+    body.nav-open .page-hero {
+        margin-top: 100vh;
+    }
 }
 
 .announcement-content {
@@ -3320,13 +3419,24 @@ img[loading="lazy"].loaded {
     
     /* Add breathing room for main content after the banner */
     .hero, .main-content, .about-main, .services-hero, .products-hero, .contact-hero, 
-    .page-hero, .content-section, .main-hero, .section {
-        padding-top: 2rem;
+    .page-hero, .content-section, .main-hero, .section,
+    .products-intro, .contact-intro, .contact-content, .about-grid {
+        padding-top: 3rem;
     }
     
     /* Specific fixes for common page layouts */
     .container:first-of-type {
-        margin-top: 1rem;
+        margin-top: 1.5rem;
+    }
+    
+    /* Ensure main content areas have proper spacing */
+    main[id="main-content"] {
+        padding-top: 1.5rem;
+    }
+    
+    /* Fix for page hero sections specifically */
+    .page-hero .container {
+        padding-top: 1.5rem;
     }
 }
 
@@ -3469,7 +3579,7 @@ img[loading="lazy"].loaded {
   }
   
   /* ————————————————  
-     3) Decorative “Star” Divider  
+     3) Decorative "Star" Divider  
      ———————————————— */
   .section-divider {
     position: relative;
@@ -3498,7 +3608,7 @@ img[loading="lazy"].loaded {
   }
   
   /* ————————————————  
-     4) Footer “Signup & Social” Extras  
+     4) Footer "Signup & Social" Extras  
      ———————————————— */
   .footer-extras {
     display: grid;
@@ -3669,7 +3779,7 @@ img[loading="lazy"].loaded {
     50%     { opacity: 0.40; }
   }
 
-  /* alias the old “.features” container to your new section */
+  /* alias the old ".features" container to your new section */
 .features-overview {
     /* if you want the same spacing as .features */
     padding: 4rem 0;
@@ -3730,7 +3840,7 @@ img[loading="lazy"].loaded {
     left: 100%;
   }
   
-  /* alias the icon wrapper if you’re using one */
+  /* alias the icon wrapper if you're using one */
   .feature-card .icon-wrap {
     font-size: 3rem;
     margin-bottom: 1rem;

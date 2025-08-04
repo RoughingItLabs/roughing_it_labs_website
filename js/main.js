@@ -62,6 +62,7 @@ async function includeHTML() {
       
       hamburger.classList.toggle('active');
       navLinks.classList.toggle('active');
+      document.body.classList.toggle('nav-open');
       hamburger.setAttribute('aria-expanded', !isExpanded);
       
       // Prevent body scroll when menu is open
@@ -75,6 +76,7 @@ async function includeHTML() {
       link.addEventListener('click', () => {
         hamburger.classList.remove('active');
         navLinks.classList.remove('active');
+        document.body.classList.remove('nav-open');
         hamburger.setAttribute('aria-expanded', 'false');
         document.body.style.overflow = '';
         console.log('Menu closed via link click');
@@ -86,6 +88,7 @@ async function includeHTML() {
       if (!hamburger.contains(e.target) && !navLinks.contains(e.target)) {
         hamburger.classList.remove('active');
         navLinks.classList.remove('active');
+        document.body.classList.remove('nav-open');
         hamburger.setAttribute('aria-expanded', 'false');
         document.body.style.overflow = '';
       }
@@ -96,6 +99,7 @@ async function includeHTML() {
       if (e.key === 'Escape') {
         hamburger.classList.remove('active');
         navLinks.classList.remove('active');
+        document.body.classList.remove('nav-open');
         hamburger.setAttribute('aria-expanded', 'false');
         document.body.style.overflow = '';
       }
