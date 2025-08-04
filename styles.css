@@ -31,6 +31,21 @@
     box-sizing: border-box;
 }
 
+/* Ensure no gaps between header and page-hero */
+body {
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    margin: 0;
+    padding: 0;
+}
+
+.page-hero {
+    margin-top: calc(-1 * var(--header-height)) !important;
+}
+
 html {
     scroll-behavior: smooth;
     scroll-padding: 2rem;
@@ -70,6 +85,12 @@ body::before {
     padding: 0 2rem;
 }
 
+/* Ensure main element has no default margins */
+main {
+    margin: 0;
+    padding: 0;
+}
+
 /* Improved section spacing */
 section {
     padding: 5rem 0;
@@ -86,12 +107,12 @@ section + section {
 }
 
 :root {
-    --header-height: 100px; /* ← change to your real header height */
+    --header-height: 80px; /* Adjusted to match actual header height */
   }
 /* Header & Navigation */
 /* 1) Default: header sits over hero, transparent background */
 .header {
-    background: transparent;
+    background: linear-gradient(135deg, var(--primary-color) 0%, var(--dark-brown) 100%);
     box-shadow: none;
     position: sticky;
     top: 0;
@@ -335,13 +356,14 @@ section + section {
 
 /* Page Hero Styles */
 .page-hero {
-    
     background: linear-gradient(135deg, var(--primary-color) 0%, var(--dark-brown) 100%);
     padding: 6rem 0;
     text-align: center;
     color: var(--off-white);
     margin-top: calc(-1 * var(--header-height));
-  padding-top: calc(var(--header-height) + 10rem);
+    padding-top: calc(var(--header-height) + 6rem);
+    position: relative;
+    border-top: none;
 }
 
 .page-title {
