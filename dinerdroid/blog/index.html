@@ -27,7 +27,15 @@
                     <h1 class="dinerdroid-logo" style="display: flex; align-items: center; gap: 10px;"><img src="../../images/dinerdroid-header.png" alt="DinerDroid" width="40" height="40">DinerDroid</h1>
                     <p class="dinerdroid-tagline">AI Menu Analysis & Dish Recommendations</p>
                 </div>
-                <ul class="nav-links">
+                
+                <!-- Hamburger menu button -->
+                <button class="hamburger-menu" aria-label="Toggle navigation menu" aria-expanded="false">
+                    <span class="hamburger-line"></span>
+                    <span class="hamburger-line"></span>
+                    <span class="hamburger-line"></span>
+                </button>
+                
+                <ul class="nav-links" id="nav-links">
                     <li><a href="../../index.html">RoughingIt Labs</a></li>
                     <li><a href="../index.html">DinerDroid Home</a></li>
                     <li><a href="index.html" class="active">Blog</a></li>
@@ -195,5 +203,16 @@
             </div>
         </div>
     </footer>
+    
+    <!-- Load main JavaScript for hamburger menu functionality -->
+    <script src="../../js/main.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Initialize hamburger menu for DinerDroid pages
+            setTimeout(() => {
+                initializeHamburgerMenu();
+            }, 100);
+        });
+    </script>
 </body>
 </html>
