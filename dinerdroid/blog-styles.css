@@ -304,6 +304,15 @@
     background: var(--dinerdroid-light);
 }
 
+/* Mobile scroll indicator */
+@media (max-width: 480px) {
+    .category-grid::after {
+        content: '';
+        flex: 0 0 1rem;
+        width: 1rem;
+    }
+}
+
 .categories h2 {
     font-size: 2.5rem;
     color: var(--dinerdroid-primary);
@@ -586,13 +595,42 @@
         gap: 0.5rem;
     }
     
+    .categories {
+        padding: 2rem 0;
+    }
+    
+    .categories h2 {
+        font-size: 1.8rem;
+        margin-bottom: 1.5rem;
+    }
+    
     .category-grid {
-        grid-template-columns: repeat(3, 1fr);
+        display: flex;
+        overflow-x: auto;
         gap: 0.75rem;
+        padding: 0.5rem 1rem 1rem 1rem;
+        scroll-snap-type: x mandatory;
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: none;
+        -ms-overflow-style: none;
+    }
+    
+    .category-grid::-webkit-scrollbar {
+        display: none;
     }
     
     .category-card {
-        padding: 0.75rem;
+        flex: 0 0 auto;
+        width: 90px;
+        height: 90px;
+        padding: 0.5rem;
+        scroll-snap-align: start;
+        border-radius: 12px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
     }
     
     .category-card i {
@@ -601,12 +639,13 @@
     }
     
     .category-card h3 {
-        font-size: 0.8rem;
-        margin-bottom: 0.25rem;
+        font-size: 0.7rem;
+        margin-bottom: 0;
+        line-height: 1.1;
+        font-weight: 600;
     }
     
     .category-card p {
-        font-size: 0.7rem;
-        margin: 0;
+        display: none;
     }
 }
