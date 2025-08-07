@@ -134,22 +134,22 @@
             <div class="container">
                 <h2>Explore by Category</h2>
                 <div class="category-grid">
-                    <div class="category-card">
+                    <div class="category-card" role="button" tabindex="0" aria-label="Filter by Launch News">
                         <i class="fas fa-rocket"></i>
                         <h3>Launch News</h3>
                         <p>Latest updates and announcements</p>
                     </div>
-                    <div class="category-card">
+                    <div class="category-card" role="button" tabindex="0" aria-label="Filter by Features">
                         <i class="fas fa-cogs"></i>
                         <h3>Features</h3>
                         <p>Deep dives into app capabilities</p>
                     </div>
-                    <div class="category-card">
+                    <div class="category-card" role="button" tabindex="0" aria-label="Filter by Tips & Tricks">
                         <i class="fas fa-lightbulb"></i>
                         <h3>Tips & Tricks</h3>
                         <p>Maximize your dining experience</p>
                     </div>
-                    <div class="category-card">
+                    <div class="category-card" role="button" tabindex="0" aria-label="Filter by Behind the Scenes">
                         <i class="fas fa-code"></i>
                         <h3>Behind the Scenes</h3>
                         <p>Development insights and stories</p>
@@ -206,6 +206,8 @@
     
     <!-- Load main JavaScript for hamburger menu functionality -->
     <script src="../../js/main.js"></script>
+    <!-- Load blog category filtering functionality -->
+    <script src="blog-categories.js"></script>
     <script>
         document.addEventListener('DOMContentLoaded', function() {
             // Initialize hamburger menu for DinerDroid pages
