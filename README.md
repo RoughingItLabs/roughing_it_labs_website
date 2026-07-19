@@ -15,13 +15,25 @@ The website captures the spirit of the Nevada Territory in the 1860s, combining 
 ##  File Structure
 
 ```
-├── index.html          # Homepage
-├── about.html          # Company story and values
-├── services.html       # AI services offered
-├── contact.html        # Contact form and information
-├── styles.css          # Complete styling
-└── README.md           # This file
+├── index.html                          # Homepage
+├── pages/
+│   ├── about.html                      # Company story and values
+│   ├── services.html                   # AI services offered
+│   ├── products.html                   # Product showcase (DinerDroid, The Cellar, AutoMind)
+│   ├── contact.html                    # Contact form and information
+│   ├── dinerdroid-privacy.html         # DinerDroid privacy policy
+│   └── the-cellar-privacy.html         # The Cellar / Cellar Companion privacy policy
+├── dinerdroid/                         # DinerDroid product microsite & blog
+├── styles.css                          # Complete styling
+└── README.md                           # This file
 ```
+
+### Store privacy URLs
+
+App Store / Play Console privacy policy links:
+
+- **DinerDroid:** `https://roughingitlabs.com/pages/dinerdroid-privacy.html`
+- **The Cellar / Cellar Companion:** `https://roughingitlabs.com/pages/the-cellar-privacy.html`
 
 ## Deployment Options
 
